@@ -1,0 +1,66 @@
+using HotelManagement.Forms;
+
+namespace HotelManagement
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+            panelMain.Padding = new Padding(0, 62, 0, 0);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void LoadPage(UserControl page)
+        {
+            panelMain.Controls.Clear();        // Clear previous control
+            page.Dock = DockStyle.Fill;        // Fill the panel
+            panelMain.Controls.Add(page);      // Add the new page
+
+            var pageWithTitle = page as dynamic;
+            if (pageWithTitle != null && pageWithTitle.PageTitle != null)
+            {
+                SetPageTitle(pageWithTitle.PageTitle);
+            }
+        }
+        public void SetPageTitle(string title)
+        {
+            lblPageTitle.Text = title;
+        }
+
+        private void roomsbtn_Click(object sender, EventArgs e)
+        {
+            RoomsControl roomsPage = new RoomsControl();
+            LoadPage(roomsPage);
+
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btndashboard_Click(object sender, EventArgs e)
+        {
+            LoadPage(new DashboardControl());
+        }
+    }
+}
