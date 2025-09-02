@@ -112,20 +112,24 @@
             txtroomtype.Font = new Font("Segoe UI", 9.75F);
             txtroomtype.ForeColor = Color.Black;
             txtroomtype.FormattingEnabled = true;
+            txtroomtype.Items.AddRange(new object[] { "Singular Room", "Double Room", "Presidential Suite" });
             txtroomtype.Location = new Point(142, 152);
             txtroomtype.Name = "txtroomtype";
             txtroomtype.Size = new Size(201, 25);
             txtroomtype.TabIndex = 6;
+            txtroomtype.Text = "Select";
             // 
             // txtstatus
             // 
             txtstatus.Font = new Font("Segoe UI", 9.75F);
             txtstatus.ForeColor = Color.Black;
             txtstatus.FormattingEnabled = true;
+            txtstatus.Items.AddRange(new object[] { "Available", "Not Available" });
             txtstatus.Location = new Point(142, 266);
             txtstatus.Name = "txtstatus";
             txtstatus.Size = new Size(201, 25);
             txtstatus.TabIndex = 7;
+            txtstatus.Text = "Select";
             // 
             // txtprice
             // 
