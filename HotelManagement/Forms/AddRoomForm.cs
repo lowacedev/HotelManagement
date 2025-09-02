@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using DatabaseProject;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,10 @@ using System.Xml.Linq;
 
 namespace HotelManagement
 {
+    
     public partial class AddRoomForm : Form
     {
-        private object objdbConnections;
-
+        DbConnections objdbConnections = new DbConnections();
         public AddRoomForm()
         {
             InitializeComponent();
@@ -57,7 +58,7 @@ namespace HotelManagement
         private void button1_Click(object sender, EventArgs e)
         {
             int roomNo = int.Parse(txtRoomNo.Text);
-            int roomtype = int.Parse(txtroomtype.Text);
+            string roomtype = txtroomtype.Text;
             int price = int.Parse(txtprice.Text);
             string status = txtstatus.Text;
             if (roomNo.Equals(""))
@@ -70,14 +71,14 @@ namespace HotelManagement
             }
             else
             {
-                SqlCommand insertCommand = new SqlCommand("insert into tbl_Room(room_number, roomtype, price, status) values(@roomno, @roomtype, @price, @status)");
+                SqlCommand insertCommand = new SqlCommand("insert into tbl_Room(room_number, room_type, price, status) values(@roomno, @roomtype, @price, @status)");
             // insertCommand.Parameters.AddWithValue("@ID", ID);
 insertCommand.Parameters.AddWithValue("@roomno", roomNo);
                 insertCommand.Parameters.AddWithValue("@roomtype", roomtype);
                 insertCommand.Parameters.AddWithValue("@price", price);
                 insertCommand.Parameters.AddWithValue("@status", status);
-                //int row = objdbConnections.executeQuery(insertCommand);
-               // if (row == 1)
+                int row = objdbConnections.executeQuery(insertCommand);
+                if (row == 1)
                 {
                     MessageBox.Show("The Record has been Added!");
                     

@@ -55,11 +55,11 @@
             panel1 = new Panel();
             linkSignup = new Button();
             panelRegister = new Panel();
+            label10 = new Label();
+            txtname = new TextBox();
             label9 = new Label();
             txtemail = new TextBox();
             panel2 = new Panel();
-            label10 = new Label();
-            txtname = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picShowPassword1).BeginInit();
             panelLogin.SuspendLayout();
@@ -337,12 +337,12 @@
             // 
             // panelRegister
             // 
+            panelRegister.Controls.Add(btnregister);
             panelRegister.Controls.Add(label10);
             panelRegister.Controls.Add(txtname);
             panelRegister.Controls.Add(label9);
             panelRegister.Controls.Add(txtemail);
             panelRegister.Controls.Add(pictureBox1);
-            panelRegister.Controls.Add(btnregister);
             panelRegister.Controls.Add(label3);
             panelRegister.Controls.Add(picShowPassword1);
             panelRegister.Controls.Add(label2);
@@ -358,6 +358,26 @@
             panelRegister.Size = new Size(874, 672);
             panelRegister.TabIndex = 0;
             panelRegister.Paint += panelRegister_Paint;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(519, 212);
+            label10.Name = "label10";
+            label10.Size = new Size(38, 15);
+            label10.TabIndex = 28;
+            label10.Text = "Name";
+            label10.Click += label10_Click;
+            // 
+            // txtname
+            // 
+            txtname.BackColor = Color.White;
+            txtname.Location = new Point(520, 238);
+            txtname.Name = "txtname";
+            txtname.Size = new Size(259, 23);
+            txtname.TabIndex = 29;
             // 
             // label9
             // 
@@ -387,34 +407,14 @@
             panel2.Size = new Size(443, 672);
             panel2.TabIndex = 25;
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(519, 212);
-            label10.Name = "label10";
-            label10.Size = new Size(38, 15);
-            label10.TabIndex = 28;
-            label10.Text = "Name";
-            label10.Click += label10_Click;
-            // 
-            // txtname
-            // 
-            txtname.BackColor = Color.White;
-            txtname.Location = new Point(520, 238);
-            txtname.Name = "txtname";
-            txtname.Size = new Size(259, 23);
-            txtname.TabIndex = 29;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(874, 672);
-            Controls.Add(panelRegister);
             Controls.Add(panelLogin);
+            Controls.Add(panelRegister);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
