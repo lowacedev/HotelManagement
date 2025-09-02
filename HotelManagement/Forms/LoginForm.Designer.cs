@@ -56,8 +56,10 @@
             linkSignup = new Button();
             panelRegister = new Panel();
             label9 = new Label();
-            textBox3 = new TextBox();
+            txtemail = new TextBox();
             panel2 = new Panel();
+            label10 = new Label();
+            txtname = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picShowPassword1).BeginInit();
             panelLogin.SuspendLayout();
@@ -133,7 +135,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(520, 215);
+            label3.Location = new Point(520, 273);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 9;
@@ -142,15 +144,16 @@
             // txtUsername1
             // 
             txtUsername1.BackColor = Color.White;
-            txtUsername1.Location = new Point(520, 241);
+            txtUsername1.Location = new Point(521, 299);
             txtUsername1.Name = "txtUsername1";
             txtUsername1.Size = new Size(259, 23);
             txtUsername1.TabIndex = 10;
+            txtUsername1.TextChanged += txtUsername1_TextChanged;
             // 
             // txtPassword1
             // 
             txtPassword1.BackColor = Color.White;
-            txtPassword1.Location = new Point(520, 351);
+            txtPassword1.Location = new Point(520, 409);
             txtPassword1.Name = "txtPassword1";
             txtPassword1.Size = new Size(259, 23);
             txtPassword1.TabIndex = 12;
@@ -160,7 +163,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(520, 327);
+            label4.Location = new Point(520, 385);
             label4.Name = "label4";
             label4.Size = new Size(55, 15);
             label4.TabIndex = 11;
@@ -170,7 +173,7 @@
             // 
             picShowPassword1.BackColor = Color.Transparent;
             picShowPassword1.Image = (Image)resources.GetObject("picShowPassword1.Image");
-            picShowPassword1.Location = new Point(747, 355);
+            picShowPassword1.Location = new Point(746, 393);
             picShowPassword1.Margin = new Padding(0);
             picShowPassword1.Name = "picShowPassword1";
             picShowPassword1.Padding = new Padding(0, 2, 0, 0);
@@ -235,6 +238,7 @@
             btnSignup.TabIndex = 15;
             btnSignup.Text = "Sign In";
             btnSignup.UseVisualStyleBackColor = false;
+            btnSignup.Click += btnSignup_Click;
             // 
             // label5
             // 
@@ -333,8 +337,10 @@
             // 
             // panelRegister
             // 
+            panelRegister.Controls.Add(label10);
+            panelRegister.Controls.Add(txtname);
             panelRegister.Controls.Add(label9);
-            panelRegister.Controls.Add(textBox3);
+            panelRegister.Controls.Add(txtemail);
             panelRegister.Controls.Add(pictureBox1);
             panelRegister.Controls.Add(btnregister);
             panelRegister.Controls.Add(label3);
@@ -351,25 +357,26 @@
             panelRegister.Name = "panelRegister";
             panelRegister.Size = new Size(874, 672);
             panelRegister.TabIndex = 0;
+            panelRegister.Paint += panelRegister_Paint;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(520, 272);
+            label9.Location = new Point(520, 330);
             label9.Name = "label9";
             label9.Size = new Size(33, 15);
             label9.TabIndex = 26;
             label9.Text = "Email";
             // 
-            // textBox3
+            // txtemail
             // 
-            textBox3.BackColor = Color.White;
-            textBox3.Location = new Point(520, 298);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(259, 23);
-            textBox3.TabIndex = 27;
+            txtemail.BackColor = Color.White;
+            txtemail.Location = new Point(520, 356);
+            txtemail.Name = "txtemail";
+            txtemail.Size = new Size(259, 23);
+            txtemail.TabIndex = 27;
             // 
             // panel2
             // 
@@ -380,14 +387,34 @@
             panel2.Size = new Size(443, 672);
             panel2.TabIndex = 25;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(519, 212);
+            label10.Name = "label10";
+            label10.Size = new Size(38, 15);
+            label10.TabIndex = 28;
+            label10.Text = "Name";
+            label10.Click += label10_Click;
+            // 
+            // txtname
+            // 
+            txtname.BackColor = Color.White;
+            txtname.Location = new Point(520, 238);
+            txtname.Name = "txtname";
+            txtname.Size = new Size(259, 23);
+            txtname.TabIndex = 29;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(874, 672);
-            Controls.Add(panelLogin);
             Controls.Add(panelRegister);
+            Controls.Add(panelLogin);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
@@ -431,7 +458,9 @@
         private Panel panel1;
         private Panel panel2;
         private Label label9;
-        private TextBox textBox3;
+        private TextBox txtemail;
         private PictureBox picShowPassword;
+        private Label label10;
+        private TextBox txtname;
     }
 }
