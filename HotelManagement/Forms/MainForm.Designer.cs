@@ -40,11 +40,13 @@
             button3 = new Button();
             btndashboard = new Button();
             panelMain = new Panel();
+            dashboardControl1 = new HotelManagement.Forms.DashboardControl();
             panelHeader = new Panel();
             lblPageTitle = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
+            panelMain.SuspendLayout();
             panelHeader.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,7 +77,7 @@
             panel2.ForeColor = Color.White;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(220, 800);
+            panel2.Size = new Size(220, 749);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -189,12 +191,19 @@
             // panelMain
             // 
             panelMain.BorderStyle = BorderStyle.FixedSingle;
-            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(dashboardControl1);
             panelMain.Location = new Point(220, 0);
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(980, 800);
             panelMain.TabIndex = 2;
             panelMain.Paint += panelMain_Paint;
+            // 
+            // dashboardControl1
+            // 
+            dashboardControl1.Location = new Point(0, 0);
+            dashboardControl1.Name = "dashboardControl1";
+            dashboardControl1.Size = new Size(150, 150);
+            dashboardControl1.TabIndex = 0;
             // 
             // panelHeader
             // 
@@ -205,6 +214,7 @@
             panelHeader.Name = "panelHeader";
             panelHeader.Size = new Size(980, 62);
             panelHeader.TabIndex = 0;
+            panelHeader.Paint += panelHeader_Paint;
             // 
             // lblPageTitle
             // 
@@ -217,19 +227,19 @@
             lblPageTitle.TabIndex = 5;
             lblPageTitle.Text = "Dashboard";
             // 
-            // DashboardForm
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1200, 800);
+            ClientSize = new Size(1200, 749);
             Controls.Add(panelHeader);
             Controls.Add(panelMain);
             Controls.Add(panel2);
             Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "DashboardForm";
+            Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "dashboard";
             Load += Form1_Load;
@@ -237,6 +247,7 @@
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panelMain.ResumeLayout(false);
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             ResumeLayout(false);
@@ -259,5 +270,6 @@
         private Label label3;
         private Panel panel4;
         internal Button btndashboard;
+        private Forms.DashboardControl dashboardControl1;
     }
 }

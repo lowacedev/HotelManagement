@@ -34,9 +34,9 @@
             label4 = new Label();
             label5 = new Label();
             txtRoomNo = new TextBox();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            textBox2 = new TextBox();
+            txtroomtype = new ComboBox();
+            txtstatus = new ComboBox();
+            txtprice = new TextBox();
             button1 = new Button();
             btncancel = new Button();
             panel1 = new Panel();
@@ -107,34 +107,34 @@
             txtRoomNo.Size = new Size(201, 25);
             txtRoomNo.TabIndex = 5;
             // 
-            // comboBox1
+            // txtroomtype
             // 
-            comboBox1.Font = new Font("Segoe UI", 9.75F);
-            comboBox1.ForeColor = Color.Black;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(142, 152);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(201, 25);
-            comboBox1.TabIndex = 6;
+            txtroomtype.Font = new Font("Segoe UI", 9.75F);
+            txtroomtype.ForeColor = Color.Black;
+            txtroomtype.FormattingEnabled = true;
+            txtroomtype.Location = new Point(142, 152);
+            txtroomtype.Name = "txtroomtype";
+            txtroomtype.Size = new Size(201, 25);
+            txtroomtype.TabIndex = 6;
             // 
-            // comboBox2
+            // txtstatus
             // 
-            comboBox2.Font = new Font("Segoe UI", 9.75F);
-            comboBox2.ForeColor = Color.Black;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(142, 266);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(201, 25);
-            comboBox2.TabIndex = 7;
+            txtstatus.Font = new Font("Segoe UI", 9.75F);
+            txtstatus.ForeColor = Color.Black;
+            txtstatus.FormattingEnabled = true;
+            txtstatus.Location = new Point(142, 266);
+            txtstatus.Name = "txtstatus";
+            txtstatus.Size = new Size(201, 25);
+            txtstatus.TabIndex = 7;
             // 
-            // textBox2
+            // txtprice
             // 
-            textBox2.Font = new Font("Segoe UI", 9.75F);
-            textBox2.ForeColor = Color.Black;
-            textBox2.Location = new Point(142, 209);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(201, 25);
-            textBox2.TabIndex = 8;
+            txtprice.Font = new Font("Segoe UI", 9.75F);
+            txtprice.ForeColor = Color.Black;
+            txtprice.Location = new Point(142, 209);
+            txtprice.Name = "txtprice";
+            txtprice.Size = new Size(201, 25);
+            txtprice.TabIndex = 8;
             // 
             // button1
             // 
@@ -148,6 +148,7 @@
             button1.TabIndex = 9;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // btncancel
             // 
@@ -182,9 +183,9 @@
             Controls.Add(panel1);
             Controls.Add(btncancel);
             Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(txtprice);
+            Controls.Add(txtstatus);
+            Controls.Add(txtroomtype);
             Controls.Add(txtRoomNo);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -208,9 +209,9 @@
         private Label label4;
         private Label label5;
         private TextBox txtRoomNo;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private TextBox textBox2;
+        private ComboBox txtroomtype;
+        private ComboBox txtstatus;
+        private TextBox txtprice;
         private Button button1;
         private Button btncancel;
         private Panel panel1;

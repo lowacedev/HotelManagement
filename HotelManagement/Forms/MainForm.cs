@@ -8,6 +8,9 @@ namespace HotelManagement
         {
             InitializeComponent();
             panelMain.Padding = new Padding(0, 62, 0, 0);
+            this.FormBorderStyle = FormBorderStyle.None; // Remove borders and title bar
+            this.WindowState = FormWindowState.Maximized; // Maximize the window
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,6 +64,11 @@ namespace HotelManagement
         private void btndashboard_Click(object sender, EventArgs e)
         {
             LoadPage(new DashboardControl());
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
