@@ -154,6 +154,7 @@
             // 
             txtPassword1.BackColor = Color.White;
             txtPassword1.Location = new Point(520, 409);
+            txtPassword1.Margin = new Padding(0);
             txtPassword1.Name = "txtPassword1";
             txtPassword1.Size = new Size(259, 23);
             txtPassword1.TabIndex = 12;
@@ -171,12 +172,11 @@
             // 
             // picShowPassword1
             // 
-            picShowPassword1.BackColor = Color.Transparent;
+            picShowPassword1.BackColor = Color.White;
             picShowPassword1.Image = (Image)resources.GetObject("picShowPassword1.Image");
-            picShowPassword1.Location = new Point(746, 393);
-            picShowPassword1.Margin = new Padding(0);
+            picShowPassword1.Location = new Point(747, 412);
+            picShowPassword1.Margin = new Padding(0, 2, 0, 0);
             picShowPassword1.Name = "picShowPassword1";
-            picShowPassword1.Padding = new Padding(0, 2, 0, 0);
             picShowPassword1.Size = new Size(23, 13);
             picShowPassword1.SizeMode = PictureBoxSizeMode.Zoom;
             picShowPassword1.TabIndex = 1;
@@ -205,9 +205,9 @@
             // 
             // picShowPassword
             // 
-            picShowPassword.BackColor = Color.Transparent;
+            picShowPassword.BackColor = Color.White;
             picShowPassword.Image = (Image)resources.GetObject("picShowPassword.Image");
-            picShowPassword.Location = new Point(747, 361);
+            picShowPassword.Location = new Point(748, 328);
             picShowPassword.Margin = new Padding(0);
             picShowPassword.Name = "picShowPassword";
             picShowPassword.Padding = new Padding(0, 2, 0, 0);
@@ -232,7 +232,7 @@
             btnSignup.BackColor = Color.Teal;
             btnSignup.FlatAppearance.BorderSize = 0;
             btnSignup.FlatStyle = FlatStyle.Flat;
-            btnSignup.Location = new Point(520, 450);
+            btnSignup.Location = new Point(521, 417);
             btnSignup.Name = "btnSignup";
             btnSignup.Size = new Size(259, 54);
             btnSignup.TabIndex = 15;
@@ -245,7 +245,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(520, 241);
+            label5.Location = new Point(521, 212);
             label5.Name = "label5";
             label5.Size = new Size(58, 15);
             label5.TabIndex = 20;
@@ -255,7 +255,7 @@
             // 
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(520, 170);
+            label6.Location = new Point(521, 167);
             label6.Name = "label6";
             label6.Size = new Size(222, 45);
             label6.TabIndex = 19;
@@ -267,7 +267,7 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ForeColor = Color.FromArgb(33, 145, 245);
-            button2.Location = new Point(676, 384);
+            button2.Location = new Point(677, 351);
             button2.Name = "button2";
             button2.Size = new Size(113, 23);
             button2.TabIndex = 16;
@@ -277,7 +277,7 @@
             // txtUsername
             // 
             txtUsername.BackColor = Color.White;
-            txtUsername.Location = new Point(520, 269);
+            txtUsername.Location = new Point(521, 238);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(259, 23);
             txtUsername.TabIndex = 21;
@@ -285,7 +285,7 @@
             // txtPassword
             // 
             txtPassword.BackColor = Color.White;
-            txtPassword.Location = new Point(520, 355);
+            txtPassword.Location = new Point(521, 322);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(259, 23);
             txtPassword.TabIndex = 23;
@@ -295,7 +295,7 @@
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(539, 528);
+            label7.Location = new Point(550, 489);
             label7.Name = "label7";
             label7.Size = new Size(131, 15);
             label7.TabIndex = 17;
@@ -306,7 +306,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(520, 327);
+            label8.Location = new Point(521, 294);
             label8.Name = "label8";
             label8.Size = new Size(55, 15);
             label8.TabIndex = 22;
@@ -327,7 +327,7 @@
             linkSignup.FlatAppearance.BorderSize = 0;
             linkSignup.FlatStyle = FlatStyle.Flat;
             linkSignup.ForeColor = Color.FromArgb(33, 145, 245);
-            linkSignup.Location = new Point(666, 524);
+            linkSignup.Location = new Point(677, 485);
             linkSignup.Name = "linkSignup";
             linkSignup.Size = new Size(63, 23);
             linkSignup.TabIndex = 18;

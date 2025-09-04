@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            button6 = new Button();
-            button5 = new Button();
+            btnBookings = new Button();
+            btnReservation = new Button();
             panel4 = new Panel();
             label2 = new Label();
             label3 = new Label();
             roomsbtn = new Button();
-            button3 = new Button();
+            btnInventory = new Button();
             btndashboard = new Button();
             panelMain = new Panel();
             dashboardControl1 = new HotelManagement.Forms.DashboardControl();
@@ -67,11 +67,11 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(62, 64, 97);
-            panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
+            panel2.Controls.Add(btnBookings);
+            panel2.Controls.Add(btnReservation);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(roomsbtn);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(btnInventory);
             panel2.Controls.Add(btndashboard);
             panel2.Dock = DockStyle.Left;
             panel2.ForeColor = Color.White;
@@ -81,34 +81,36 @@
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
-            // button6
+            // btnBookings
             // 
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.ForeColor = Color.White;
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(0, 153);
-            button6.Name = "button6";
-            button6.Padding = new Padding(20, 0, 0, 0);
-            button6.Size = new Size(234, 63);
-            button6.TabIndex = 7;
-            button6.Text = "Bookings";
-            button6.UseVisualStyleBackColor = true;
+            btnBookings.FlatAppearance.BorderSize = 0;
+            btnBookings.FlatStyle = FlatStyle.Flat;
+            btnBookings.ForeColor = Color.White;
+            btnBookings.Image = (Image)resources.GetObject("btnBookings.Image");
+            btnBookings.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBookings.Location = new Point(0, 153);
+            btnBookings.Name = "btnBookings";
+            btnBookings.Padding = new Padding(20, 0, 0, 0);
+            btnBookings.Size = new Size(234, 63);
+            btnBookings.TabIndex = 7;
+            btnBookings.Text = "Bookings";
+            btnBookings.UseVisualStyleBackColor = true;
+            btnBookings.Click += btnBookings_Click;
             // 
-            // button5
+            // btnReservation
             // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(0, 222);
-            button5.Name = "button5";
-            button5.Padding = new Padding(20, 0, 0, 0);
-            button5.Size = new Size(234, 63);
-            button5.TabIndex = 6;
-            button5.Text = "Reservation";
-            button5.UseVisualStyleBackColor = true;
+            btnReservation.FlatAppearance.BorderSize = 0;
+            btnReservation.FlatStyle = FlatStyle.Flat;
+            btnReservation.Image = (Image)resources.GetObject("btnReservation.Image");
+            btnReservation.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReservation.Location = new Point(0, 222);
+            btnReservation.Name = "btnReservation";
+            btnReservation.Padding = new Padding(20, 0, 0, 0);
+            btnReservation.Size = new Size(234, 63);
+            btnReservation.TabIndex = 6;
+            btnReservation.Text = "Reservation";
+            btnReservation.UseVisualStyleBackColor = true;
+            btnReservation.Click += btnReservation_Click;
             // 
             // panel4
             // 
@@ -158,19 +160,20 @@
             roomsbtn.UseVisualStyleBackColor = true;
             roomsbtn.Click += roomsbtn_Click;
             // 
-            // button3
+            // btnInventory
             // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(0, 372);
-            button3.Name = "button3";
-            button3.Padding = new Padding(20, 0, 0, 0);
-            button3.Size = new Size(234, 63);
-            button3.TabIndex = 4;
-            button3.Text = "Inventory";
-            button3.UseVisualStyleBackColor = true;
+            btnInventory.FlatAppearance.BorderSize = 0;
+            btnInventory.FlatStyle = FlatStyle.Flat;
+            btnInventory.Image = (Image)resources.GetObject("btnInventory.Image");
+            btnInventory.ImageAlign = ContentAlignment.MiddleLeft;
+            btnInventory.Location = new Point(0, 372);
+            btnInventory.Name = "btnInventory";
+            btnInventory.Padding = new Padding(20, 0, 0, 0);
+            btnInventory.Size = new Size(234, 63);
+            btnInventory.TabIndex = 4;
+            btnInventory.Text = "Inventory";
+            btnInventory.UseVisualStyleBackColor = true;
+            btnInventory.Click += btnInventory_Click;
             // 
             // btndashboard
             // 
@@ -190,6 +193,7 @@
             // 
             // panelMain
             // 
+            panelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelMain.BorderStyle = BorderStyle.FixedSingle;
             panelMain.Controls.Add(dashboardControl1);
             panelMain.Location = new Point(220, 0);
@@ -259,10 +263,10 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         internal Button button1;
-        internal Button button6;
+        internal Button btnBookings;
         internal Button button5;
         internal Button roomsbtn;
-        internal Button button3;
+        internal Button btnInventory;
         private Panel panelMain;
         private Panel panelHeader;
         private Label lblPageTitle;
@@ -271,5 +275,6 @@
         private Panel panel4;
         internal Button btndashboard;
         private Forms.DashboardControl dashboardControl1;
+        internal Button btnReservation;
     }
 }

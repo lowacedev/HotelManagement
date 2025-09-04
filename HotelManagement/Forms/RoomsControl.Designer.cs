@@ -126,6 +126,7 @@
             dataGridView1.GridColor = SystemColors.ActiveCaptionText;
             dataGridView1.Location = new Point(0, 48);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(1200, 752);
             dataGridView1.TabIndex = 6;
             // 
@@ -133,21 +134,25 @@
             // 
             txtRoomNo.HeaderText = "Room No";
             txtRoomNo.Name = "txtRoomNo";
+            txtRoomNo.ReadOnly = true;
             // 
             // txtRoomType
             // 
             txtRoomType.HeaderText = "Room Type";
             txtRoomType.Name = "txtRoomType";
+            txtRoomType.ReadOnly = true;
             // 
             // txtPrice
             // 
             txtPrice.HeaderText = "Price";
             txtPrice.Name = "txtPrice";
+            txtPrice.ReadOnly = true;
             // 
             // txtStatus
             // 
             txtStatus.HeaderText = "Status";
             txtStatus.Name = "txtStatus";
+            txtStatus.ReadOnly = true;
             // 
             // RoomsControl
             // 
