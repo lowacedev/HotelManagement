@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement.Forms
 {
-    partial class AddBookingForm
+    partial class EditBookingForm
     {
         /// <summary>
         /// Required designer variable.

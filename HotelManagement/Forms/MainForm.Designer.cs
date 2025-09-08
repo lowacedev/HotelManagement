@@ -32,7 +32,6 @@
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             btnBookings = new Button();
-            btnReservation = new Button();
             panel4 = new Panel();
             label2 = new Label();
             label3 = new Label();
@@ -43,6 +42,7 @@
             dashboardControl1 = new HotelManagement.Forms.DashboardControl();
             panelHeader = new Panel();
             lblPageTitle = new Label();
+            btnService = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -67,8 +67,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(62, 64, 97);
+            panel2.Controls.Add(btnService);
             panel2.Controls.Add(btnBookings);
-            panel2.Controls.Add(btnReservation);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(roomsbtn);
             panel2.Controls.Add(btnInventory);
@@ -96,21 +96,6 @@
             btnBookings.Text = "Bookings";
             btnBookings.UseVisualStyleBackColor = true;
             btnBookings.Click += btnBookings_Click;
-            // 
-            // btnReservation
-            // 
-            btnReservation.FlatAppearance.BorderSize = 0;
-            btnReservation.FlatStyle = FlatStyle.Flat;
-            btnReservation.Image = (Image)resources.GetObject("btnReservation.Image");
-            btnReservation.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReservation.Location = new Point(0, 222);
-            btnReservation.Name = "btnReservation";
-            btnReservation.Padding = new Padding(20, 0, 0, 0);
-            btnReservation.Size = new Size(234, 63);
-            btnReservation.TabIndex = 6;
-            btnReservation.Text = "Reservation";
-            btnReservation.UseVisualStyleBackColor = true;
-            btnReservation.Click += btnReservation_Click;
             // 
             // panel4
             // 
@@ -151,7 +136,7 @@
             roomsbtn.FlatStyle = FlatStyle.Flat;
             roomsbtn.Image = (Image)resources.GetObject("roomsbtn.Image");
             roomsbtn.ImageAlign = ContentAlignment.MiddleLeft;
-            roomsbtn.Location = new Point(0, 291);
+            roomsbtn.Location = new Point(0, 222);
             roomsbtn.Name = "roomsbtn";
             roomsbtn.Padding = new Padding(20, 0, 0, 0);
             roomsbtn.Size = new Size(234, 63);
@@ -166,7 +151,7 @@
             btnInventory.FlatStyle = FlatStyle.Flat;
             btnInventory.Image = (Image)resources.GetObject("btnInventory.Image");
             btnInventory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInventory.Location = new Point(0, 372);
+            btnInventory.Location = new Point(0, 291);
             btnInventory.Name = "btnInventory";
             btnInventory.Padding = new Padding(20, 0, 0, 0);
             btnInventory.Size = new Size(234, 63);
@@ -231,6 +216,20 @@
             lblPageTitle.TabIndex = 5;
             lblPageTitle.Text = "Dashboard";
             // 
+            // btnService
+            // 
+            btnService.FlatAppearance.BorderSize = 0;
+            btnService.FlatStyle = FlatStyle.Flat;
+            btnService.Image = (Image)resources.GetObject("btnService.Image");
+            btnService.ImageAlign = ContentAlignment.MiddleLeft;
+            btnService.Location = new Point(0, 360);
+            btnService.Name = "btnService";
+            btnService.Padding = new Padding(20, 0, 0, 0);
+            btnService.Size = new Size(234, 63);
+            btnService.TabIndex = 8;
+            btnService.Text = "Service";
+            btnService.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
@@ -276,5 +275,6 @@
         internal Button btndashboard;
         private Forms.DashboardControl dashboardControl1;
         internal Button btnReservation;
+        internal Button btnService;
     }
 }

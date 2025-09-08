@@ -22,15 +22,16 @@ namespace HotelManagement.Forms
             get { return "Bookings"; }
         }
 
-        private void DGVBookings_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-
-        }
-
         private void btnAddBooking_Click(object sender, EventArgs e)
         {
             AddBookingForm addBookingForm = new AddBookingForm();
             addBookingForm.ShowDialog();
+        }
+
+        private void toolStripMenuEdit_Click(object sender, EventArgs e)
+        {
+            EditBookingForm editBookingForm = new EditBookingForm();
+            editBookingForm.ShowDialog();
         }
     }
 }

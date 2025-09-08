@@ -20,5 +20,17 @@ namespace HotelManagement.Forms
         {
             get { return "Inventory"; }
         }
+
+        private void btnAddInventory_Click(object sender, EventArgs e)
+        {
+            AddInventoryForm addInventoryForm = new AddInventoryForm();
+            addInventoryForm.ShowDialog();
+        }
+
+        private void restockToolStripRestock_Click(object sender, EventArgs e)
+        {
+            RestockForm restockForm = new RestockForm();
+            restockForm.ShowDialog();
+        }
     }
 }

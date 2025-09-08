@@ -15409,6 +15409,21 @@
         pnov2nSPquWlpcX/Az+9kWxp+0KNAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnService.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAHuSURBVEhL7ZY7S11REIU/Iz4alUSCCDbprLSyMUmTRqMk
+        ERIFFV//wEaEFBZiOv+AIFgIKdRO69TJPwgECfjqRFDBB/hgwRwZhnOTc+45EIQsGDjsvWbWvrNnz1x4
+        xGh031vAZoW9UvEBOAcmgBngEriw70nbex+dysAr4O4v1hudiuAd8BLYSRGKtm1c+RSC7k0p9MH3gI9A
+        k9kQ8DNw5NMQg+XFeBB9FgnAU9tLeGORUA2mXED9UmEQOAD2gbe2Nux48ikEPRdVbxJQqRUk6LMgNLs1
+        +finlht5hFvcmp7ZhotTFXyqVUiC0itxifbb2kiZqRZUKElAVa8KKaI1ZKFwcVV6Tiok3alMv9SLyuRT
+        uIWqDaprZWkg4pTSQDyytEyJZkIt0AesA0eWslWgOxLdkNBAmHZDQt8aHJmGRBewDBymnDqxbyb2xPkV
+        HotR5E+2C8xXqObciMGz2CmwAnTGYHkQg+axG2AhBrQrGbDK1iG/RIIQg+W1MxdLzWPOrsRzThznATFQ
+        HrsCloAeYM0qO3JugcUoKkRimfYDeB0FEyQkzdTPQAfQDsym/JvIar+AT0BNFPP4DowCdXHDHN/YWLtO
+        EYh2bAeuj4GKoM3e8O8UQR1Kz+t5dCoTaq1q/HoqqtavwItI+o9/jnt3lyVO36JfVQAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="btnBookings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -15418,16 +15433,6 @@
         L1L2lz0C18CVSc+q+bkkeWU5DhZu7URFL1m1ReAu2JNXFh/0DMwCQ8CSnaqiVFNvzm6LxkEnVt8MfnHS
         hs2cfiVox+o6RT4gST2h2cZB21Yvu4LUE5r9D/pDQf0Wg44Kvp+YAvaBA5M+SFElSLNpb8+8alMM0kcs
         +aBWOLMrZh3omPSsmnqtMQnM+KLVJnzxR/kAdtsgR4oDvhkAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnReservation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAOFJREFUSEvtlDELQVEYhp9BFAt/gR8gWWQwsFr8BtmZDEqZDcw2g6xGMillZDZa
-        GSwWKfrq3rqdPqXOPVnOW89wTu85T7fud8DH55+pANuYqZkSSQt4x8zElEhKStGWvSlJAVmlaMsDSERF
-        TSAJ3JWyLcWoaAzkgZNStKUTFR2ABrBSimug/yMD4Gqcn4WSNPAE2sBUEW2UC7+hiY6hqB5sjICeIrLl
-        BWRENAw25o5mSaiKSCZYFjtHsyR0RXQLFhcgp5TiYCGiAlAOvkbiYpbO4Q8RjbxP5uNoy9KU+Pi4zwcP
-        pB7J2chO8gAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="roomsbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

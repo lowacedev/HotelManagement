@@ -71,11 +71,6 @@ namespace HotelManagement
 
         }
 
-        private void btnReservation_Click(object sender, EventArgs e)
-        {
-            ReservationControl reservationPage = new ReservationControl();
-            LoadPage(reservationPage);
-        }
 
         private void btnBookings_Click(object sender, EventArgs e)
         {

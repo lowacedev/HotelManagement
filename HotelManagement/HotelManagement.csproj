@@ -9,10 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\ReservationControl.cs" />
+    <Compile Remove="Forms\ReservationControl.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Forms\ReservationControl.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\EditBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

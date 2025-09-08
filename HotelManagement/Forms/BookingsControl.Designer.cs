@@ -54,7 +54,7 @@
             btnCheckOut = new DataGridViewButtonColumn();
             btnCancel = new DataGridViewButtonColumn();
             contextMenuBookings = new ContextMenuStrip(components);
-            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuEdit = new ToolStripMenuItem();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGVBookings).BeginInit();
             contextMenuBookings.SuspendLayout();
@@ -79,7 +79,7 @@
             // 
             comboBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(879, 12);
+            comboBox4.Location = new Point(903, 13);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(86, 23);
             comboBox4.TabIndex = 10;
@@ -88,7 +88,7 @@
             // 
             comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(787, 12);
+            comboBox3.Location = new Point(811, 13);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(86, 23);
             comboBox3.TabIndex = 9;
@@ -99,7 +99,7 @@
             btnAddBooking.BackColor = Color.Teal;
             btnAddBooking.FlatStyle = FlatStyle.Flat;
             btnAddBooking.ForeColor = Color.White;
-            btnAddBooking.Location = new Point(971, 3);
+            btnAddBooking.Location = new Point(995, 5);
             btnAddBooking.Name = "btnAddBooking";
             btnAddBooking.Size = new Size(160, 37);
             btnAddBooking.TabIndex = 8;
@@ -180,7 +180,6 @@
             DGVBookings.RowHeadersWidth = 51;
             DGVBookings.Size = new Size(1158, 587);
             DGVBookings.TabIndex = 7;
-            DGVBookings.CellPainting += DGVBookings_CellPainting;
             // 
             // txtBookingID
             // 
@@ -286,15 +285,18 @@
             // 
             // contextMenuBookings
             // 
-            contextMenuBookings.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            contextMenuBookings.Items.AddRange(new ToolStripItem[] { toolStripMenuEdit });
             contextMenuBookings.Name = "contextMenuStrip1";
             contextMenuBookings.Size = new Size(95, 26);
             // 
-            // toolStripMenuItem1
+            // toolStripMenuEdit
             // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(94, 22);
-            toolStripMenuItem1.Text = "Edit";
+            toolStripMenuEdit.BackColor = SystemColors.Control;
+            toolStripMenuEdit.Image = Properties.Resources.icons8_edit_50;
+            toolStripMenuEdit.Name = "toolStripMenuEdit";
+            toolStripMenuEdit.Size = new Size(94, 22);
+            toolStripMenuEdit.Text = "Edit";
+            toolStripMenuEdit.Click += toolStripMenuEdit_Click;
             // 
             // BookingsControl
             // 
@@ -335,6 +337,6 @@
         private DataGridViewButtonColumn btnCheckOut;
         private DataGridViewButtonColumn btnCancel;
         private ContextMenuStrip contextMenuBookings;
-        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuEdit;
     }
 }
