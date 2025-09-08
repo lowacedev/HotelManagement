@@ -208,16 +208,16 @@
         #endregion
 
         private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox txtRoomNo;
-        private ComboBox txtroomtype;
-        private ComboBox txtstatus;
-        private TextBox txtprice;
-        private Button button1;
-        private Button btncancel;
-        private Panel panel1;
+        public Label label2;
+        public Label label3;
+        public Label label4;
+        public Label label5;
+        public TextBox txtRoomNo;
+        public ComboBox txtroomtype;
+        public ComboBox txtstatus;
+        public TextBox txtprice;
+        public Button button1;
+        public Button btncancel;
+        public Panel panel1;
     }
 }

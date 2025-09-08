@@ -80,8 +80,13 @@ insertCommand.Parameters.AddWithValue("@roomno", roomNo);
                 int row = objdbConnections.executeQuery(insertCommand);
                 if (row == 1)
                 {
+                    this.Close();
+                    txtprice.Text = "";
+                    txtRoomNo.Text = "";
+                    txtroomtype.Text = "";
+                    txtstatus.Text = "";
                     MessageBox.Show("The Record has been Added!");
-                    
+
                 }
             }
         }

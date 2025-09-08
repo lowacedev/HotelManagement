@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms; // This is added to allow MessageBox.Show
+
 namespace DatabaseProject
 {
     class DbConnections
@@ -16,7 +18,8 @@ namespace DatabaseProject
         private static SqlDataAdapter adapter = new SqlDataAdapter();
         public SqlTransaction DbTran;
         private static string strConnString = "Data Source=DESKTOP-8TM8KGG\\SQLEXPRESS;Initial Catalog=DB_Hotel_Management;Integrated Security=True;Trust Server Certificate=True";
-public void createConn()
+
+        public void createConn()
         {
             try
             {
@@ -28,40 +31,45 @@ public void createConn()
             }
             catch (Exception ex)
             {
-                throw ex;
+                // It's generally better to log the error and re-throw,
+                // or handle it gracefully, rather than just throwing it.
+                MessageBox.Show("Error establishing database connection: " + ex.Message);
+                throw;
             }
         }
+
         public void closeConn()
         {
             connection.Close();
         }
+
         public int executeDataAdapter(DataTable tblName, string strSelectSql)
         {
             try
             {
-
-
                 if (connection.State == 0)
                 {
                     createConn();
                 }
+
                 adapter.SelectCommand.CommandText = strSelectSql;
                 adapter.SelectCommand.CommandType = CommandType.Text;
-                SqlCommandBuilder DbCommandBuilder = new
-                SqlCommandBuilder(adapter);
-                string insert =
-                DbCommandBuilder.GetInsertCommand().CommandText.ToString();
-                string update =
-                DbCommandBuilder.GetUpdateCommand().CommandText.ToString();
-                string delete =
-                DbCommandBuilder.GetDeleteCommand().CommandText.ToString();
+
+                SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
+
+                string insert = DbCommandBuilder.GetInsertCommand().CommandText.ToString();
+                string update = DbCommandBuilder.GetUpdateCommand().CommandText.ToString();
+                string delete = DbCommandBuilder.GetDeleteCommand().CommandText.ToString();
+
                 return adapter.Update(tblName);
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Database Error: " + ex.Message);
+                throw;
             }
         }
+
         public void readDatathroughAdapter(string query, DataTable tblName)
         {
             try
@@ -70,17 +78,21 @@ public void createConn()
                 {
                     createConn();
                 }
+
                 command.Connection = connection;
                 command.CommandText = query;
                 command.CommandType = CommandType.Text;
+
                 adapter = new SqlDataAdapter(command);
                 adapter.Fill(tblName);
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Database Error: " + ex.Message);
+                throw;
             }
         }
+
         internal int executeQuery(SqlCommand insertCommand)
         {
             int rowsAffected = 0;
@@ -92,8 +104,7 @@ public void createConn()
             }
             catch (SqlException ex)
             {
-                System.Windows.Forms.MessageBox.Show("Database Error: " +
-                ex.Message);
+                System.Windows.Forms.MessageBox.Show("Database Error: " + ex.Message);
             }
             finally
             {
@@ -101,7 +112,28 @@ public void createConn()
             }
             return rowsAffected;
         }
+
+        // --- Corrected Method ---
+        internal void executeQuery(string deleteQuery)
+        {
+            try
+            {
+                createConn();
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, connection))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                // This will now catch actual database errors, not the NotImplementedException.
+                System.Windows.Forms.MessageBox.Show("Error deleting record: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                closeConn();
+            }
+        }
     }
 }
-
-
