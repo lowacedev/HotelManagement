@@ -52,8 +52,9 @@
             panel3.Controls.Add(comboBox1);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1200, 48);
+            panel3.Size = new Size(1371, 64);
             panel3.TabIndex = 5;
             panel3.Paint += panel3_Paint;
             // 
@@ -61,19 +62,21 @@
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(3, 10);
+            txtSearch.Location = new Point(3, 13);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Search";
-            txtSearch.Size = new Size(200, 25);
+            txtSearch.Size = new Size(228, 29);
             txtSearch.TabIndex = 8;
             // 
             // comboBox2
             // 
             comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(963, 12);
+            comboBox2.Location = new Point(1101, 16);
+            comboBox2.Margin = new Padding(3, 4, 3, 4);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(86, 23);
+            comboBox2.Size = new Size(98, 28);
             comboBox2.TabIndex = 7;
             // 
             // addroombtn
@@ -82,9 +85,10 @@
             addroombtn.BackColor = Color.Teal;
             addroombtn.FlatStyle = FlatStyle.Flat;
             addroombtn.ForeColor = Color.White;
-            addroombtn.Location = new Point(1055, 5);
+            addroombtn.Location = new Point(1206, 7);
+            addroombtn.Margin = new Padding(3, 4, 3, 4);
             addroombtn.Name = "addroombtn";
-            addroombtn.Size = new Size(133, 37);
+            addroombtn.Size = new Size(152, 49);
             addroombtn.TabIndex = 6;
             addroombtn.Text = "Add New Room";
             addroombtn.UseVisualStyleBackColor = false;
@@ -94,9 +98,10 @@
             // 
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(871, 12);
+            comboBox1.Location = new Point(995, 16);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(86, 23);
+            comboBox1.Size = new Size(98, 28);
             comboBox1.TabIndex = 5;
             // 
             // dataGridView1
@@ -124,45 +129,51 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = SystemColors.ActiveCaptionText;
-            dataGridView1.Location = new Point(0, 48);
+            dataGridView1.Location = new Point(0, 64);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(1200, 752);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1371, 1003);
             dataGridView1.TabIndex = 6;
             // 
             // txtRoomNo
             // 
             txtRoomNo.HeaderText = "Room No";
+            txtRoomNo.MinimumWidth = 6;
             txtRoomNo.Name = "txtRoomNo";
             txtRoomNo.ReadOnly = true;
             // 
             // txtRoomType
             // 
             txtRoomType.HeaderText = "Room Type";
+            txtRoomType.MinimumWidth = 6;
             txtRoomType.Name = "txtRoomType";
             txtRoomType.ReadOnly = true;
             // 
             // txtPrice
             // 
             txtPrice.HeaderText = "Price";
+            txtPrice.MinimumWidth = 6;
             txtPrice.Name = "txtPrice";
             txtPrice.ReadOnly = true;
             // 
             // txtStatus
             // 
             txtStatus.HeaderText = "Status";
+            txtStatus.MinimumWidth = 6;
             txtStatus.Name = "txtStatus";
             txtStatus.ReadOnly = true;
             // 
             // RoomsControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dataGridView1);
             Controls.Add(panel3);
-            Margin = new Padding(0, 100, 0, 0);
+            Margin = new Padding(0, 133, 0, 0);
             Name = "RoomsControl";
-            Size = new Size(1200, 800);
+            Size = new Size(1371, 1067);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace HotelManagement.Forms
 {
@@ -19,6 +20,17 @@ namespace HotelManagement.Forms
         public string PageTitle
         {
             get { return "Bookings"; }
+        }
+
+        private void DGVBookings_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+
+        }
+
+        private void btnAddBooking_Click(object sender, EventArgs e)
+        {
+            AddBookingForm addBookingForm = new AddBookingForm();
+            addBookingForm.ShowDialog();
         }
     }
 }
