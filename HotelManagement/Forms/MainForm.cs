@@ -83,5 +83,11 @@ namespace HotelManagement
             InventoryControl inventoryPage = new InventoryControl();
             LoadPage(inventoryPage);
         }
+
+        private void btnHousekeeping_Click(object sender, EventArgs e)
+        {
+            HousekeepingControl housekeepingControl = new HousekeepingControl();
+            LoadPage(housekeepingControl);
+        }
     }
 }

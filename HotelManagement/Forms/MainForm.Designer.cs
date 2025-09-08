@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            btnHousekeeping = new Button();
             btnBookings = new Button();
             panel4 = new Panel();
             label2 = new Label();
@@ -42,7 +43,6 @@
             dashboardControl1 = new HotelManagement.Forms.DashboardControl();
             panelHeader = new Panel();
             lblPageTitle = new Label();
-            btnService = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -67,7 +67,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(62, 64, 97);
-            panel2.Controls.Add(btnService);
+            panel2.Controls.Add(btnHousekeeping);
             panel2.Controls.Add(btnBookings);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(roomsbtn);
@@ -80,6 +80,21 @@
             panel2.Size = new Size(220, 749);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // btnHousekeeping
+            // 
+            btnHousekeeping.FlatAppearance.BorderSize = 0;
+            btnHousekeeping.FlatStyle = FlatStyle.Flat;
+            btnHousekeeping.Image = (Image)resources.GetObject("btnHousekeeping.Image");
+            btnHousekeeping.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHousekeeping.Location = new Point(0, 360);
+            btnHousekeeping.Name = "btnHousekeeping";
+            btnHousekeeping.Padding = new Padding(20, 0, 0, 0);
+            btnHousekeeping.Size = new Size(234, 63);
+            btnHousekeeping.TabIndex = 8;
+            btnHousekeeping.Text = "Housekeeping";
+            btnHousekeeping.UseVisualStyleBackColor = true;
+            btnHousekeeping.Click += btnHousekeeping_Click;
             // 
             // btnBookings
             // 
@@ -216,20 +231,6 @@
             lblPageTitle.TabIndex = 5;
             lblPageTitle.Text = "Dashboard";
             // 
-            // btnService
-            // 
-            btnService.FlatAppearance.BorderSize = 0;
-            btnService.FlatStyle = FlatStyle.Flat;
-            btnService.Image = (Image)resources.GetObject("btnService.Image");
-            btnService.ImageAlign = ContentAlignment.MiddleLeft;
-            btnService.Location = new Point(0, 360);
-            btnService.Name = "btnService";
-            btnService.Padding = new Padding(20, 0, 0, 0);
-            btnService.Size = new Size(234, 63);
-            btnService.TabIndex = 8;
-            btnService.Text = "Service";
-            btnService.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
@@ -275,6 +276,6 @@
         internal Button btndashboard;
         private Forms.DashboardControl dashboardControl1;
         internal Button btnReservation;
-        internal Button btnService;
+        internal Button btnHousekeeping;
     }
 }
