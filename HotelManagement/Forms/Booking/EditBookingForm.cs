@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelManagement.Forms.BookingsControl;
 
 namespace HotelManagement.Forms
 {
+
+
+
     public partial class EditBookingForm : Form
     {
+
         public EditBookingForm()
         {
            InitializeComponent();

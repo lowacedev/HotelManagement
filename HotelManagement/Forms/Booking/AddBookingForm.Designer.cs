@@ -31,6 +31,11 @@
             panel1 = new Panel();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            txtage = new NumericUpDown();
+            label15 = new Label();
+            female = new RadioButton();
+            male = new RadioButton();
+            label14 = new Label();
             txtEmail = new TextBox();
             txtPhoneNo = new TextBox();
             txtName = new TextBox();
@@ -62,6 +67,7 @@
             btnsubmit = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtage).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nupNoOfGuests).BeginInit();
@@ -91,38 +97,92 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtage);
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(female);
+            groupBox1.Controls.Add(male);
+            groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(txtPhoneNo);
             groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(31, 93);
+            groupBox1.Location = new Point(31, 62);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(330, 161);
+            groupBox1.Size = new Size(330, 232);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Guest Information";
             // 
+            // txtage
+            // 
+            txtage.Location = new Point(147, 149);
+            txtage.Name = "txtage";
+            txtage.Size = new Size(51, 23);
+            txtage.TabIndex = 10;
+           // txtage.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(20, 157);
+            label15.Name = "label15";
+            label15.Size = new Size(31, 15);
+            label15.TabIndex = 9;
+            label15.Text = "Age:";
+            // 
+            // female
+            // 
+            female.AutoSize = true;
+            female.Location = new Point(231, 189);
+            female.Name = "female";
+            female.Size = new Size(63, 19);
+            female.TabIndex = 8;
+            female.TabStop = true;
+            female.Text = "Female";
+            female.UseVisualStyleBackColor = true;
+            //female.CheckedChanged += female_CheckedChanged;
+            // 
+            // male
+            // 
+            male.AutoSize = true;
+            male.Location = new Point(146, 189);
+            male.Name = "male";
+            male.Size = new Size(51, 19);
+            male.TabIndex = 7;
+            male.TabStop = true;
+            male.Text = "Male";
+            male.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(20, 193);
+            label14.Name = "label14";
+            label14.Size = new Size(48, 15);
+            label14.TabIndex = 6;
+            label14.Text = "Gender:";
+            // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(122, 110);
+            txtEmail.Location = new Point(146, 110);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(202, 23);
+            txtEmail.Size = new Size(178, 23);
             txtEmail.TabIndex = 5;
             // 
             // txtPhoneNo
             // 
-            txtPhoneNo.Location = new Point(122, 69);
+            txtPhoneNo.Location = new Point(146, 69);
             txtPhoneNo.Name = "txtPhoneNo";
-            txtPhoneNo.Size = new Size(202, 23);
+            txtPhoneNo.Size = new Size(178, 23);
             txtPhoneNo.TabIndex = 4;
             // 
             // txtName
             // 
-            txtName.Location = new Point(122, 30);
+            txtName.Location = new Point(146, 30);
             txtName.Name = "txtName";
-            txtName.Size = new Size(202, 23);
+            txtName.Size = new Size(178, 23);
             txtName.TabIndex = 3;
             // 
             // label4
@@ -133,20 +193,21 @@
             label4.Size = new Size(39, 15);
             label4.TabIndex = 2;
             label4.Text = "Email:";
+          //  label4.Click += label4_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(18, 77);
             label3.Name = "label3";
-            label3.Size = new Size(91, 15);
+            label3.Size = new Size(122, 15);
             label3.TabIndex = 1;
-            label3.Text = "Phone Number:";
+            label3.Text = "Phone Number (+63):";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(18, 33);
+            label2.Location = new Point(20, 38);
             label2.Name = "label2";
             label2.Size = new Size(42, 15);
             label2.TabIndex = 0;
@@ -160,7 +221,7 @@
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(label11);
-            groupBox2.Location = new Point(31, 275);
+            groupBox2.Location = new Point(31, 312);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(330, 167);
             groupBox2.TabIndex = 2;
@@ -169,25 +230,26 @@
             // 
             // txtAdvPay
             // 
-            txtAdvPay.Location = new Point(122, 101);
+            txtAdvPay.Location = new Point(146, 101);
             txtAdvPay.Name = "txtAdvPay";
-            txtAdvPay.Size = new Size(202, 23);
+            txtAdvPay.Size = new Size(178, 23);
             txtAdvPay.TabIndex = 11;
             // 
             // txtTotalAmount
             // 
-            txtTotalAmount.Location = new Point(122, 62);
+            txtTotalAmount.Location = new Point(146, 62);
             txtTotalAmount.Name = "txtTotalAmount";
             txtTotalAmount.ReadOnly = true;
-            txtTotalAmount.Size = new Size(202, 23);
+            txtTotalAmount.Size = new Size(178, 23);
             txtTotalAmount.TabIndex = 10;
             // 
             // cbMethod
             // 
             cbMethod.FormattingEnabled = true;
-            cbMethod.Location = new Point(122, 30);
+            cbMethod.Items.AddRange(new object[] { "Cash", "Debit/Credit Card", "Gcash" });
+            cbMethod.Location = new Point(146, 30);
             cbMethod.Name = "cbMethod";
-            cbMethod.Size = new Size(202, 23);
+            cbMethod.Size = new Size(178, 23);
             cbMethod.TabIndex = 6;
             // 
             // label13
@@ -204,7 +266,7 @@
             label12.AutoSize = true;
             label12.Location = new Point(18, 70);
             label12.Name = "label12";
-            label12.Size = new Size(83, 15);
+            label12.Size = new Size(82, 15);
             label12.TabIndex = 8;
             label12.Text = "Total Amount:";
             // 
@@ -278,6 +340,7 @@
             // cbStayType
             // 
             cbStayType.FormattingEnabled = true;
+            cbStayType.Items.AddRange(new object[] { "Check in", "Reservation" });
             cbStayType.Location = new Point(138, 30);
             cbStayType.Name = "cbStayType";
             cbStayType.Size = new Size(121, 23);
@@ -297,7 +360,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(14, 72);
             label9.Name = "label9";
-            label9.Size = new Size(70, 15);
+            label9.Size = new Size(69, 15);
             label9.TabIndex = 10;
             label9.Text = "Room Type:";
             // 
@@ -333,7 +396,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(14, 30);
             label5.Name = "label5";
-            label5.Size = new Size(60, 15);
+            label5.Size = new Size(59, 15);
             label5.TabIndex = 6;
             label5.Text = "Stay Type:";
             // 
@@ -371,6 +434,7 @@
             btnsubmit.TabIndex = 4;
             btnsubmit.Text = "Submit";
             btnsubmit.UseVisualStyleBackColor = false;
+            btnsubmit.Click += btnsubmit_Click;
             // 
             // AddBookingForm
             // 
@@ -390,6 +454,7 @@
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtage).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -433,5 +498,10 @@
         private Panel panel2;
         private Button btncancel;
         private Button btnsubmit;
+        private Label label14;
+        private RadioButton female;
+        private RadioButton male;
+        private Label label15;
+        private NumericUpDown txtage;
     }
 }

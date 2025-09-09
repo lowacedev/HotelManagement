@@ -85,9 +85,10 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(355, 10);
             label1.Name = "label1";
-            label1.Size = new Size(221, 32);
+            label1.Size = new Size(160, 32);
             label1.TabIndex = 0;
-            label1.Text = "Add New Booking";
+            label1.Text = "Edit Booking";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // groupBox1
             // 
@@ -204,7 +205,7 @@
             label12.AutoSize = true;
             label12.Location = new Point(18, 70);
             label12.Name = "label12";
-            label12.Size = new Size(83, 15);
+            label12.Size = new Size(82, 15);
             label12.TabIndex = 8;
             label12.Text = "Total Amount:";
             // 
@@ -297,7 +298,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(14, 72);
             label9.Name = "label9";
-            label9.Size = new Size(70, 15);
+            label9.Size = new Size(69, 15);
             label9.TabIndex = 10;
             label9.Text = "Room Type:";
             // 
@@ -333,7 +334,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(14, 30);
             label5.Name = "label5";
-            label5.Size = new Size(60, 15);
+            label5.Size = new Size(59, 15);
             label5.TabIndex = 6;
             label5.Text = "Stay Type:";
             // 
@@ -372,7 +373,7 @@
             btnsubmit.Text = "Submit";
             btnsubmit.UseVisualStyleBackColor = false;
             // 
-            // AddBookingForm
+            // EditBookingForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -383,7 +384,7 @@
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "AddBookingForm";
+            Name = "EditBookingForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddBookingForm";
             panel1.ResumeLayout(false);

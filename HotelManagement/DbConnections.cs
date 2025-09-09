@@ -1,16 +1,11 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms; // This is added to allow MessageBox.Show
+using System.Windows.Forms; // For MessageBox
 
 namespace DatabaseProject
 {
-    class DbConnections
+    class DbConnections : IDisposable
     {
         private static SqlConnection connection = new SqlConnection();
         private static SqlCommand command = new SqlCommand();
@@ -31,8 +26,6 @@ namespace DatabaseProject
             }
             catch (Exception ex)
             {
-                // It's generally better to log the error and re-throw,
-                // or handle it gracefully, rather than just throwing it.
                 MessageBox.Show("Error establishing database connection: " + ex.Message);
                 throw;
             }
@@ -40,7 +33,23 @@ namespace DatabaseProject
 
         public void closeConn()
         {
-            connection.Close();
+            if (connection != null && connection.State != ConnectionState.Closed)
+            {
+                connection.Close();
+            }
+        }
+
+        // Implement IDisposable
+        public void Dispose()
+        {
+            if (connection != null)
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+                connection.Dispose();
+            }
         }
 
         public int executeDataAdapter(DataTable tblName, string strSelectSql)
@@ -104,7 +113,7 @@ namespace DatabaseProject
             }
             catch (SqlException ex)
             {
-                System.Windows.Forms.MessageBox.Show("Database Error: " + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message);
             }
             finally
             {
@@ -113,7 +122,6 @@ namespace DatabaseProject
             return rowsAffected;
         }
 
-        // --- Corrected Method ---
         internal void executeQuery(string deleteQuery)
         {
             try
@@ -126,9 +134,88 @@ namespace DatabaseProject
             }
             catch (SqlException ex)
             {
-                // This will now catch actual database errors, not the NotImplementedException.
-                System.Windows.Forms.MessageBox.Show("Error deleting record: " + ex.Message);
+                MessageBox.Show("Error deleting record: " + ex.Message);
                 throw;
+            }
+            finally
+            {
+                closeConn();
+            }
+        }
+
+        public int InsertBooking(
+            int room_id,
+            string guest_name,
+            string phone_number,
+            string email,
+            int age,
+            string gender,
+            string method,
+            decimal amount,
+            int advance_payment,
+            string stay_type,
+            DateTime checkin_date,
+            DateTime checkout_date,
+            int no_guest)
+        {
+            int rowsAffected = 0;
+            try
+            {
+                createConn();
+
+                string insertQuery = @"
+                INSERT INTO tbl_Booking 
+                (room_id, guest_name, phone_number, email, age, gender, method, amount, advance_payment, stay_type, checkin_date, checkout_date, no_guest)
+                VALUES
+                (@room_id, @guest_name, @phone_number, @email, @age, @gender, @method, @amount, @advance_payment, @stay_type, @checkin_date, @checkout_date, @no_guest)";
+
+                using (SqlCommand cmd = new SqlCommand(insertQuery, connection))
+                {
+                    cmd.Parameters.AddWithValue("@room_id", room_id);
+                    cmd.Parameters.AddWithValue("@guest_name", guest_name);
+                    cmd.Parameters.AddWithValue("@phone_number", phone_number);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@age", age);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@method", method);
+                    cmd.Parameters.AddWithValue("@amount", amount);
+                    cmd.Parameters.AddWithValue("@advance_payment", advance_payment);
+                    cmd.Parameters.AddWithValue("@stay_type", stay_type);
+                    cmd.Parameters.AddWithValue("@checkin_date", checkin_date);
+                    cmd.Parameters.AddWithValue("@checkout_date", checkout_date);
+                    cmd.Parameters.AddWithValue("@no_guest", no_guest);
+
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error inserting booking: " + ex.Message);
+            }
+            finally
+            {
+                closeConn();
+            }
+            return rowsAffected;
+        }
+
+        public void UpdateRoomStatus(int room_id, string newStatus)
+        {
+            string query = $"UPDATE tbl_Room SET status = @status WHERE room_id = @room_id";
+
+            try
+            {
+                createConn();
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@status", newStatus);
+                    cmd.Parameters.AddWithValue("@room_id", room_id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error updating room status: " + ex.Message);
             }
             finally
             {
