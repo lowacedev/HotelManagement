@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            button2 = new Button();
+            button1 = new Button();
             btnHousekeeping = new Button();
             btnBookings = new Button();
             panel4 = new Panel();
@@ -67,6 +69,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(62, 64, 97);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(btnHousekeeping);
             panel2.Controls.Add(btnBookings);
             panel2.Controls.Add(panel4);
@@ -80,6 +84,36 @@
             panel2.Size = new Size(220, 749);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // button2
+            // 
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(-14, 614);
+            button2.Name = "button2";
+            button2.Padding = new Padding(20, 0, 0, 0);
+            button2.Size = new Size(234, 63);
+            button2.TabIndex = 10;
+            button2.Text = "User Management";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Red;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(-14, 683);
+            button1.Name = "button1";
+            button1.Padding = new Padding(20, 0, 0, 0);
+            button1.Size = new Size(234, 63);
+            button1.TabIndex = 9;
+            button1.Text = "Logout";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnHousekeeping
             // 
@@ -238,8 +272,8 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(1200, 749);
             Controls.Add(panelHeader);
-            Controls.Add(panelMain);
             Controls.Add(panel2);
+            Controls.Add(panelMain);
             Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
@@ -277,5 +311,6 @@
         private Forms.DashboardControl dashboardControl1;
         internal Button btnReservation;
         internal Button btnHousekeeping;
+        internal Button button2;
     }
 }

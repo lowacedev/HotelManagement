@@ -1,5 +1,7 @@
 ﻿using DatabaseProject;
+using HotelManagement.Forms.Room;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -9,13 +11,20 @@ namespace HotelManagement.Forms
 
     public partial class BookingsControl : UserControl
     {
-                private DbConnections objdbConnections = new DbConnections();
-
+        private DbConnections objdbConnections = new DbConnections();
+        private ContextMenuStrip actionsMenu;
+        private int selectedRowIndex;
         public BookingsControl()
         {
             InitializeComponent();
             this.Load += BookingsControl_Load;
             InitializeDataGridView();
+            actionsMenu = new ContextMenuStrip();
+            actionsMenu.Items.Add("Edit", null, EditMenuItem_Click);
+            actionsMenu.Items.Add("Delete", null, DeleteMenuItem_Click);
+            LoadBookings();
+            this.DGVBookings.CellContentClick += DGVBookings_CellContentClick;
+
         }
 
         public string PageTitle
@@ -87,12 +96,34 @@ namespace HotelManagement.Forms
             });
         }
 
-        // Load bookings from database
         public void LoadBookings()
         {
             List<BookingDisplay> bookings = new List<BookingDisplay>();
             DataTable dt = new DataTable();
+            string query = "SELECT * FROM tbl_Booking";
 
+            try
+            {
+                objdbConnections.readDatathroughAdapter(query, dt);
+                DGVBookings.DataSource = dt;
+
+                                if (DGVBookings.Columns.Contains("Actions"))
+                {
+                    DGVBookings.Columns.Remove("Actions");
+                }
+
+                
+                DataGridViewButtonColumn actionsButtonColumn = new DataGridViewButtonColumn();
+                actionsButtonColumn.Name = "Actions";
+                actionsButtonColumn.HeaderText = "Actions";
+                actionsButtonColumn.Text = "Actions";
+                actionsButtonColumn.UseColumnTextForButtonValue = true;
+                DGVBookings.Columns.Add(actionsButtonColumn);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
             try
             {
                 using (var db = new DbConnections())
@@ -132,11 +163,10 @@ namespace HotelManagement.Forms
                 });
             }
 
-            DGVBookings.DataSource = null; // Reset data source
+            DGVBookings.DataSource = null; 
             DGVBookings.DataSource = bookings;
         }
 
-        // Load event
         private void BookingsControl_Load(object sender, EventArgs e)
         {
             LoadBookings();
@@ -149,7 +179,7 @@ namespace HotelManagement.Forms
 
             if (result == DialogResult.OK)
             {
-                LoadBookings(); // Refresh bookings after adding
+                LoadBookings(); 
             }
         }
 
@@ -160,7 +190,57 @@ namespace HotelManagement.Forms
 
             if (result == DialogResult.OK)
             {
-                LoadBookings(); // Refresh bookings after editing
+                LoadBookings(); 
+            }
+        }
+        private void DGVBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && DGVBookings.Columns[e.ColumnIndex].Name == "Actions")
+            {
+                selectedRowIndex = e.RowIndex;
+
+                var rect = DGVBookings.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                var point = new Point(rect.X + rect.Width / 2, rect.Y + rect.Height);
+                actionsMenu.Show(DGVBookings, point);
+            }
+        }
+        private void EditMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex >= 0 && selectedRowIndex < DGVBookings.Rows.Count)
+            {
+                DataGridViewRow row = DGVBookings.Rows[selectedRowIndex];
+                int booking_id = Convert.ToInt32(row.Cells["booking_id"].Value);
+
+
+                using (var editForm = new EditRoomForm(booking_id))
+                {
+                    editForm.ShowDialog();
+                }
+                LoadBookings();
+            }
+        }
+
+        private void DeleteMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex >= 0 && selectedRowIndex < DGVBookings.Rows.Count)
+            {
+                DataGridViewRow row = DGVBookings.Rows[selectedRowIndex];
+                int booking_id = Convert.ToInt32(row.Cells["booking_id"].Value);
+
+                var confirmResult = MessageBox.Show("Are you sure to delete this room?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string deleteQuery = $"DELETE FROM tbl_Booking WHERE booking_id = {booking_id}";
+                    try
+                    {
+                        objdbConnections.executeQuery(deleteQuery);
+                        LoadBookings();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting record: " + ex.Message);
+                    }
+                }
             }
         }
     }

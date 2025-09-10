@@ -89,5 +89,19 @@ namespace HotelManagement
             HousekeepingControl housekeepingControl = new HousekeepingControl();
             LoadPage(housekeepingControl);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Are you sure you want to logout?");
+            LoginForm newForm = new LoginForm();
+            newForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            UserControl UserControl = new UserControl();
+            LoadPage(UserControl);
+        }
     }
 }
