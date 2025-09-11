@@ -30,10 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel3 = new Panel();
             comboBox4 = new ComboBox();
             comboBox3 = new ComboBox();
@@ -43,16 +40,6 @@
             addroombtn = new Button();
             comboBox1 = new ComboBox();
             DGVBookings = new DataGridView();
-            txtBookingID = new DataGridViewTextBoxColumn();
-            txtGuestName = new DataGridViewTextBoxColumn();
-            txtRoom = new DataGridViewTextBoxColumn();
-            txtCheckInDate = new DataGridViewTextBoxColumn();
-            txtCheckOutDate = new DataGridViewTextBoxColumn();
-            txtTotalAmount = new DataGridViewTextBoxColumn();
-            txtStatus = new DataGridViewTextBoxColumn();
-            btnCheckIn = new DataGridViewButtonColumn();
-            btnCheckOut = new DataGridViewButtonColumn();
-            btnCancel = new DataGridViewButtonColumn();
             contextMenuBookings = new ContextMenuStrip(components);
             toolStripMenuEdit = new ToolStripMenuItem();
             panel3.SuspendLayout();
@@ -161,16 +148,15 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             DGVBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGVBookings.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVBookings.Columns.AddRange(new DataGridViewColumn[] { txtBookingID, txtGuestName, txtRoom, txtCheckInDate, txtCheckOutDate, txtTotalAmount, txtStatus, btnCheckIn, btnCheckOut, btnCancel });
             DGVBookings.ContextMenuStrip = contextMenuBookings;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Teal;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            DGVBookings.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            DGVBookings.DefaultCellStyle = dataGridViewCellStyle2;
             DGVBookings.Dock = DockStyle.Fill;
             DGVBookings.EnableHeadersVisualStyles = false;
             DGVBookings.GridColor = SystemColors.ActiveCaptionText;
@@ -180,108 +166,6 @@
             DGVBookings.RowHeadersWidth = 51;
             DGVBookings.Size = new Size(1158, 587);
             DGVBookings.TabIndex = 7;
-            // 
-            // txtBookingID
-            // 
-            txtBookingID.FillWeight = 30F;
-            txtBookingID.HeaderText = "ID";
-            txtBookingID.MinimumWidth = 6;
-            txtBookingID.Name = "txtBookingID";
-            txtBookingID.ReadOnly = true;
-            txtBookingID.Resizable = DataGridViewTriState.True;
-            // 
-            // txtGuestName
-            // 
-            txtGuestName.HeaderText = "Guest Name";
-            txtGuestName.MinimumWidth = 6;
-            txtGuestName.Name = "txtGuestName";
-            txtGuestName.ReadOnly = true;
-            // 
-            // txtRoom
-            // 
-            txtRoom.HeaderText = "RoomNo";
-            txtRoom.MinimumWidth = 6;
-            txtRoom.Name = "txtRoom";
-            txtRoom.ReadOnly = true;
-            // 
-            // txtCheckInDate
-            // 
-            txtCheckInDate.HeaderText = "Check-in Date";
-            txtCheckInDate.MinimumWidth = 6;
-            txtCheckInDate.Name = "txtCheckInDate";
-            txtCheckInDate.ReadOnly = true;
-            // 
-            // txtCheckOutDate
-            // 
-            txtCheckOutDate.HeaderText = "Check-Out Date ";
-            txtCheckOutDate.MinimumWidth = 6;
-            txtCheckOutDate.Name = "txtCheckOutDate";
-            txtCheckOutDate.ReadOnly = true;
-            // 
-            // txtTotalAmount
-            // 
-            txtTotalAmount.HeaderText = "Total Amount";
-            txtTotalAmount.MinimumWidth = 6;
-            txtTotalAmount.Name = "txtTotalAmount";
-            txtTotalAmount.ReadOnly = true;
-            // 
-            // txtStatus
-            // 
-            txtStatus.HeaderText = "Status";
-            txtStatus.MinimumWidth = 6;
-            txtStatus.Name = "txtStatus";
-            txtStatus.ReadOnly = true;
-            // 
-            // btnCheckIn
-            // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.LightGreen;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle2.ForeColor = Color.DarkGreen;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightGreen;
-            dataGridViewCellStyle2.SelectionForeColor = Color.DarkGreen;
-            btnCheckIn.DefaultCellStyle = dataGridViewCellStyle2;
-            btnCheckIn.FillWeight = 40F;
-            btnCheckIn.FlatStyle = FlatStyle.Flat;
-            btnCheckIn.HeaderText = "Check-In";
-            btnCheckIn.Name = "btnCheckIn";
-            btnCheckIn.ReadOnly = true;
-            btnCheckIn.Text = "Check In";
-            btnCheckIn.UseColumnTextForButtonValue = true;
-            // 
-            // btnCheckOut
-            // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.LightBlue;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.DarkBlue;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightBlue;
-            dataGridViewCellStyle3.SelectionForeColor = Color.DarkBlue;
-            btnCheckOut.DefaultCellStyle = dataGridViewCellStyle3;
-            btnCheckOut.FillWeight = 40F;
-            btnCheckOut.FlatStyle = FlatStyle.Flat;
-            btnCheckOut.HeaderText = "Check Out";
-            btnCheckOut.Name = "btnCheckOut";
-            btnCheckOut.ReadOnly = true;
-            btnCheckOut.Text = "Check Out";
-            btnCheckOut.UseColumnTextForButtonValue = true;
-            // 
-            // btnCancel
-            // 
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 192, 192);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle4.ForeColor = Color.DarkRed;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 192, 192);
-            dataGridViewCellStyle4.SelectionForeColor = Color.DarkRed;
-            btnCancel.DefaultCellStyle = dataGridViewCellStyle4;
-            btnCancel.FillWeight = 40F;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.HeaderText = "Cancel";
-            btnCancel.Name = "btnCancel";
-            btnCancel.ReadOnly = true;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseColumnTextForButtonValue = true;
             // 
             // contextMenuBookings
             // 
@@ -326,16 +210,6 @@
         private ComboBox comboBox3;
         private ComboBox comboBox4;
         private DataGridView DGVBookings;
-        private DataGridViewTextBoxColumn txtBookingID;
-        private DataGridViewTextBoxColumn txtGuestName;
-        private DataGridViewTextBoxColumn txtRoom;
-        private DataGridViewTextBoxColumn txtCheckInDate;
-        private DataGridViewTextBoxColumn txtCheckOutDate;
-        private DataGridViewTextBoxColumn txtTotalAmount;
-        private DataGridViewTextBoxColumn txtStatus;
-        private DataGridViewButtonColumn btnCheckIn;
-        private DataGridViewButtonColumn btnCheckOut;
-        private DataGridViewButtonColumn btnCancel;
         private ContextMenuStrip contextMenuBookings;
         private ToolStripMenuItem toolStripMenuEdit;
     }

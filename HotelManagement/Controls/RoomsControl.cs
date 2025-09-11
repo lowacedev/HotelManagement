@@ -16,13 +16,9 @@ namespace HotelManagement
         public RoomsControl()
         {
             InitializeComponent();
-
-            // Initialize context menu with "Edit" and "Delete"
             actionsMenu = new ContextMenuStrip();
             actionsMenu.Items.Add("Edit", null, EditMenuItem_Click);
             actionsMenu.Items.Add("Delete", null, DeleteMenuItem_Click);
-
-            // Load data into DataGridView
             LoadRoomsData();
 
             // Attach CellContentClick event
@@ -41,17 +37,14 @@ namespace HotelManagement
 
             try
             {
-                // The readDatathroughAdapter method is assumed to be correctly implemented.
                 objdbConnections.readDatathroughAdapter(query, dtRooms);
                 dataGridView1.DataSource = dtRooms;
 
-                // Remove existing "Actions" column if it exists to prevent duplicates.
                 if (dataGridView1.Columns.Contains("Actions"))
                 {
                     dataGridView1.Columns.Remove("Actions");
                 }
 
-                // Add a single "Actions" button column.
                 DataGridViewButtonColumn actionsButtonColumn = new DataGridViewButtonColumn();
                 actionsButtonColumn.Name = "Actions";
                 actionsButtonColumn.HeaderText = "Actions";
