@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
@@ -46,12 +47,16 @@
             panelMain = new Panel();
             dashboardControl1 = new HotelManagement.Forms.DashboardControl();
             panelHeader = new Panel();
+            btnUserMenu = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            logoutToolStripMenuItem = new ToolStripMenuItem();
             lblPageTitle = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panelMain.SuspendLayout();
             panelHeader.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -271,6 +276,7 @@
             // panelHeader
             // 
             panelHeader.BackColor = Color.Teal;
+            panelHeader.Controls.Add(btnUserMenu);
             panelHeader.Controls.Add(lblPageTitle);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(220, 0);
@@ -278,6 +284,41 @@
             panelHeader.Size = new Size(980, 62);
             panelHeader.TabIndex = 0;
             panelHeader.Paint += panelHeader_Paint;
+            // 
+            // btnUserMenu
+            // 
+            btnUserMenu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnUserMenu.AutoSize = true;
+            btnUserMenu.BackColor = Color.Transparent;
+            btnUserMenu.ContextMenuStrip = contextMenuStrip1;
+            btnUserMenu.FlatAppearance.BorderSize = 0;
+            btnUserMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(62, 64, 97);
+            btnUserMenu.FlatStyle = FlatStyle.Flat;
+            btnUserMenu.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUserMenu.ForeColor = Color.White;
+            btnUserMenu.Image = (Image)resources.GetObject("btnUserMenu.Image");
+            btnUserMenu.ImageAlign = ContentAlignment.MiddleRight;
+            btnUserMenu.Location = new Point(802, 21);
+            btnUserMenu.Name = "btnUserMenu";
+            btnUserMenu.Size = new Size(151, 32);
+            btnUserMenu.TabIndex = 3;
+            btnUserMenu.Text = "Admin ";
+            btnUserMenu.TextAlign = ContentAlignment.MiddleLeft;
+            btnUserMenu.UseVisualStyleBackColor = false;
+            btnUserMenu.Click += btnUserMenu_Click;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(113, 26);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Image = (Image)resources.GetObject("logoutToolStripMenuItem.Image");
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(112, 22);
+            logoutToolStripMenuItem.Text = "Logout";
             // 
             // lblPageTitle
             // 
@@ -313,6 +354,7 @@
             panelMain.ResumeLayout(false);
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -340,5 +382,8 @@
         internal Button btnServices;
         internal Button btnSalesReport;
         internal Button btnHousekeeping;
+        private Button btnUserMenu;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

@@ -74,22 +74,6 @@ namespace HotelManagement
         }
 
 
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("Are you sure you want to logout?", "Logout",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                LoginForm newForm = new LoginForm();
-                newForm.Show();
-                this.Hide();
-            }
-        }
-
         private void btnSalesReport_Click(object sender, EventArgs e)
         {
             LoadPage(new SalesReportControl());
@@ -109,5 +93,20 @@ namespace HotelManagement
         {
             LoadPage(new HousekeepingControl());
         }
+
+        private void btnUserMenu_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(btnUserMenu, new Point(0, btnUserMenu.Height));
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            LoginForm newForm = new LoginForm();
+            newForm.Show();
+            this.Hide();
+        }
     }
+        
+    
 }

@@ -45,6 +45,42 @@ namespace HotelManagement.Controls
             };
 
             pieChart1.LegendPosition = LiveChartsCore.Measure.LegendPosition.Right;
+
+            cartesianChart1.Series = new ISeries[]
+            {
+                new ColumnSeries<double>
+                {
+                    Values = new double[] { 4000, 5000, 6000, 3000, 7000, 8000 },
+                    Name = "Bookings",
+                    Fill = new SolidColorPaint(SKColors.CornflowerBlue)
+                },
+                new ColumnSeries<double>
+                {
+                    Values = new double[] { 2000, 2500, 3000, 1500, 3500, 4000 },
+                    Name = "Services",
+                    Fill = new SolidColorPaint(SKColors.Orange)
+                }
+            };
+
+           
+            cartesianChart1.XAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Name = "Month",
+                    Labels = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun" }
+                }
+            };
+
+           
+            cartesianChart1.YAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Name = "Amount",
+                    Labeler = value => "$" + value
+                }
+            };
         }
     }
 }
