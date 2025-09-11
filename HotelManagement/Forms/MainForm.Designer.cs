@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
             btnHousekeeping = new Button();
             btnBookings = new Button();
             panel4 = new Panel();
@@ -67,6 +70,9 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(62, 64, 97);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(button2);
             panel2.Controls.Add(btnHousekeeping);
             panel2.Controls.Add(btnBookings);
             panel2.Controls.Add(panel4);
@@ -80,6 +86,51 @@
             panel2.Size = new Size(220, 749);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // button4
+            // 
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(0, 498);
+            button4.Name = "button4";
+            button4.Padding = new Padding(20, 0, 0, 0);
+            button4.Size = new Size(234, 63);
+            button4.TabIndex = 11;
+            button4.Text = "Services";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(0, 558);
+            button3.Name = "button3";
+            button3.Padding = new Padding(20, 0, 0, 0);
+            button3.Size = new Size(234, 63);
+            button3.TabIndex = 10;
+            button3.Text = "Human Resources";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 429);
+            button2.Name = "button2";
+            button2.Padding = new Padding(20, 0, 0, 0);
+            button2.Size = new Size(234, 63);
+            button2.TabIndex = 9;
+            button2.Text = "Sales Report";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // btnHousekeeping
             // 
@@ -277,5 +328,8 @@
         private Forms.DashboardControl dashboardControl1;
         internal Button btnReservation;
         internal Button btnHousekeeping;
+        internal Button button2;
+        internal Button button3;
+        internal Button button4;
     }
 }

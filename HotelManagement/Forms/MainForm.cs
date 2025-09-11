@@ -1,3 +1,4 @@
+using HotelManagement.Controls;
 using HotelManagement.Forms;
 
 namespace HotelManagement
@@ -88,6 +89,24 @@ namespace HotelManagement
         {
             HousekeepingControl housekeepingControl = new HousekeepingControl();
             LoadPage(housekeepingControl);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SalesReportControl salesReportControl = new SalesReportControl();
+            LoadPage(salesReportControl);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ServiceControl serviceControl = new ServiceControl();
+            LoadPage(serviceControl);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HumanResourceControl humanResourceControl = new HumanResourceControl();
+            LoadPage(humanResourceControl);
         }
     }
 }
