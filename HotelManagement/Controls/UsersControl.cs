@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HotelManagement.Controls
 {
-    public partial class UserControl : Form
+    public partial class UsersControl : Form
     {
-        public UserControl()
+        public UsersControl()
         {
             InitializeComponent();
         }

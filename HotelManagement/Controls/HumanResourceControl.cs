@@ -12,10 +12,11 @@ namespace HotelManagement.Controls
 {
     public partial class HumanResourceControl : UserControl
     {
+        public string PageTitle { get; set; } = "Human Resource Management";
         public HumanResourceControl()
         {
             InitializeComponent();
         }
-        public string PageTitle { get; } = "Human Resource Management";
+      
     }
 }

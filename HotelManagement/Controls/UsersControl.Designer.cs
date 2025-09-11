@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement.Controls
 {
-    partial class UserControl
+    partial class UsersControl
     {
         /// <summary>
         /// Required designer variable.

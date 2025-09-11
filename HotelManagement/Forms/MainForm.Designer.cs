@@ -31,11 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-         
-            button1 = new Button();
+            btnHumanResource = new Button();
+            btnServices = new Button();
+            btnSalesReport = new Button();
             btnHousekeeping = new Button();
             btnBookings = new Button();
             panel4 = new Panel();
@@ -44,6 +42,7 @@
             roomsbtn = new Button();
             btnInventory = new Button();
             btndashboard = new Button();
+            button1 = new Button();
             panelMain = new Panel();
             dashboardControl1 = new HotelManagement.Forms.DashboardControl();
             panelHeader = new Panel();
@@ -72,6 +71,9 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(62, 64, 97);
+            panel2.Controls.Add(btnHumanResource);
+            panel2.Controls.Add(btnServices);
+            panel2.Controls.Add(btnSalesReport);
             panel2.Controls.Add(btnHousekeeping);
             panel2.Controls.Add(btnBookings);
             panel2.Controls.Add(panel4);
@@ -86,13 +88,58 @@
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
+            // btnHumanResource
+            // 
+            btnHumanResource.FlatAppearance.BorderSize = 0;
+            btnHumanResource.FlatStyle = FlatStyle.Flat;
+            btnHumanResource.Image = (Image)resources.GetObject("btnHumanResource.Image");
+            btnHumanResource.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHumanResource.Location = new Point(0, 489);
+            btnHumanResource.Name = "btnHumanResource";
+            btnHumanResource.Padding = new Padding(20, 0, 0, 0);
+            btnHumanResource.Size = new Size(234, 63);
+            btnHumanResource.TabIndex = 11;
+            btnHumanResource.Text = "Human Resource";
+            btnHumanResource.UseVisualStyleBackColor = true;
+            btnHumanResource.Click += btnHumanResource_Click;
+            // 
+            // btnServices
+            // 
+            btnServices.FlatAppearance.BorderSize = 0;
+            btnServices.FlatStyle = FlatStyle.Flat;
+            btnServices.Image = (Image)resources.GetObject("btnServices.Image");
+            btnServices.ImageAlign = ContentAlignment.MiddleLeft;
+            btnServices.Location = new Point(0, 420);
+            btnServices.Name = "btnServices";
+            btnServices.Padding = new Padding(20, 0, 0, 0);
+            btnServices.Size = new Size(234, 63);
+            btnServices.TabIndex = 10;
+            btnServices.Text = "Services";
+            btnServices.UseVisualStyleBackColor = true;
+            btnServices.Click += btnServices_Click;
+            // 
+            // btnSalesReport
+            // 
+            btnSalesReport.FlatAppearance.BorderSize = 0;
+            btnSalesReport.FlatStyle = FlatStyle.Flat;
+            btnSalesReport.Image = (Image)resources.GetObject("btnSalesReport.Image");
+            btnSalesReport.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalesReport.Location = new Point(0, 360);
+            btnSalesReport.Name = "btnSalesReport";
+            btnSalesReport.Padding = new Padding(20, 0, 0, 0);
+            btnSalesReport.Size = new Size(234, 63);
+            btnSalesReport.TabIndex = 9;
+            btnSalesReport.Text = "Sales Report";
+            btnSalesReport.UseVisualStyleBackColor = true;
+            btnSalesReport.Click += btnSalesReport_Click;
+            // 
             // btnHousekeeping
             // 
             btnHousekeeping.FlatAppearance.BorderSize = 0;
             btnHousekeeping.FlatStyle = FlatStyle.Flat;
             btnHousekeeping.Image = (Image)resources.GetObject("btnHousekeeping.Image");
             btnHousekeeping.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHousekeeping.Location = new Point(0, 360);
+            btnHousekeeping.Location = new Point(0, 291);
             btnHousekeeping.Name = "btnHousekeeping";
             btnHousekeeping.Padding = new Padding(20, 0, 0, 0);
             btnHousekeeping.Size = new Size(234, 63);
@@ -171,7 +218,7 @@
             btnInventory.FlatStyle = FlatStyle.Flat;
             btnInventory.Image = (Image)resources.GetObject("btnInventory.Image");
             btnInventory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInventory.Location = new Point(0, 291);
+            btnInventory.Location = new Point(3, 558);
             btnInventory.Name = "btnInventory";
             btnInventory.Padding = new Padding(20, 0, 0, 0);
             btnInventory.Size = new Size(234, 63);
@@ -195,6 +242,13 @@
             btndashboard.Text = "Dashboard";
             btndashboard.UseVisualStyleBackColor = true;
             btndashboard.Click += btndashboard_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(0, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
             // 
             // panelMain
             // 
@@ -281,6 +335,10 @@
         internal Button btndashboard;
         private Forms.DashboardControl dashboardControl1;
         internal Button btnReservation;
+  
+        internal Button btnHumanResource;
+        internal Button btnServices;
+        internal Button btnSalesReport;
         internal Button btnHousekeeping;
     }
 }

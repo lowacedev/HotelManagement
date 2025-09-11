@@ -1,5 +1,7 @@
 using HotelManagement.Controls;
 using HotelManagement.Forms;
+using System;
+using System.Windows.Forms;
 
 namespace HotelManagement
 {
@@ -9,116 +11,103 @@ namespace HotelManagement
         {
             InitializeComponent();
             panelMain.Padding = new Padding(0, 62, 0, 0);
-            this.FormBorderStyle = FormBorderStyle.None; // Remove borders and title bar
-            this.WindowState = FormWindowState.Maximized; // Maximize the window
-
+            this.FormBorderStyle = FormBorderStyle.None;   // Remove borders and title bar
+            this.WindowState = FormWindowState.Maximized;  // Maximize the window
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        private void Form1_Load(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
+        private void panel2_Paint(object sender, PaintEventArgs e) { }
+        private void panelMain_Paint(object sender, PaintEventArgs e) { }
+        private void panelHeader_Paint(object sender, PaintEventArgs e) { }
 
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        // ? Universal LoadPage method
         private void LoadPage(UserControl page)
         {
             panelMain.Controls.Clear();        // Clear previous control
             page.Dock = DockStyle.Fill;        // Fill the panel
             panelMain.Controls.Add(page);      // Add the new page
 
-            var pageWithTitle = page as dynamic;
-            if (pageWithTitle != null && pageWithTitle.PageTitle != null)
+            try
             {
-                SetPageTitle(pageWithTitle.PageTitle);
+                var pageWithTitle = page as dynamic;
+                if (pageWithTitle != null && pageWithTitle.PageTitle != null)
+                {
+                    SetPageTitle(pageWithTitle.PageTitle);
+                }
+                else
+                {
+                    SetPageTitle("Hotel Management System");
+                }
+            }
+            catch
+            {
+                SetPageTitle("Hotel Management System");
             }
         }
+
         public void SetPageTitle(string title)
         {
             lblPageTitle.Text = title;
         }
 
-        private void roomsbtn_Click(object sender, EventArgs e)
-        {
-            RoomsControl roomsPage = new RoomsControl();
-            LoadPage(roomsPage);
-
-        }
-
-        private void panelMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // ? Button events
         private void btndashboard_Click(object sender, EventArgs e)
         {
             LoadPage(new DashboardControl());
         }
 
-        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        private void roomsbtn_Click(object sender, EventArgs e)
         {
-
+            LoadPage(new RoomsControl());
         }
-
 
         private void btnBookings_Click(object sender, EventArgs e)
         {
-            BookingsControl bookingsPage = new BookingsControl();
-            LoadPage(bookingsPage);
+            LoadPage(new BookingsControl());
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            InventoryControl inventoryPage = new InventoryControl();
-            LoadPage(inventoryPage);
+            LoadPage(new InventoryControl());
+        }
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to logout?", "Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                LoginForm newForm = new LoginForm();
+                newForm.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnSalesReport_Click(object sender, EventArgs e)
+        {
+            LoadPage(new SalesReportControl());
+        }
+
+        private void btnServices_Click(object sender, EventArgs e)
+        {
+            LoadPage(new ServiceControl());
+        }
+
+        private void btnHumanResource_Click(object sender, EventArgs e)
+        {
+            LoadPage(new HumanResourceControl());
         }
 
         private void btnHousekeeping_Click(object sender, EventArgs e)
         {
-            HousekeepingControl housekeepingControl = new HousekeepingControl();
-            LoadPage(housekeepingControl);
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SalesReportControl salesReportControl = new SalesReportControl();
-            LoadPage(salesReportControl);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ServiceControl serviceControl = new ServiceControl();
-            LoadPage(serviceControl);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            HumanResourceControl humanResourceControl = new HumanResourceControl();
-            LoadPage(humanResourceControl);
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Are you sure you want to logout?");
-            LoginForm newForm = new LoginForm();
-            newForm.Show();
-            this.Hide();
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            UserControl UserControl = new UserControl();
-            LoadPage(UserControl);
+            LoadPage(new HousekeepingControl());
         }
     }
 }
