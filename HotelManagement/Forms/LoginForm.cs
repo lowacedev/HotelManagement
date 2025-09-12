@@ -29,14 +29,14 @@ namespace HotelManagement
             if (passwordVisible)
             {
                 txtPassword.UseSystemPasswordChar = true;
-                picShowPassword.Image = Properties.Resources.hidePassword; 
+                picShowPassword.Image = Properties.Resources.hidePassword;
                 passwordVisible = false;
             }
             else
             {
                 // Show password
                 txtPassword.UseSystemPasswordChar = false;
-                picShowPassword.Image = Properties.Resources.showPassword; 
+                picShowPassword.Image = Properties.Resources.showPassword;
                 passwordVisible = true;
             }
         }
@@ -82,6 +82,8 @@ namespace HotelManagement
                 lblPasswordError.Text = "Invalid password.";
                 lblUsernameError.Visible = true;
                 lblPasswordError.Visible = true;
+                txtPassword.Text = "";
+                txtUsername.Text = "";
             }
         }
     }

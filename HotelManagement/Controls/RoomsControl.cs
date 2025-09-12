@@ -11,18 +11,17 @@ namespace HotelManagement
     {
         private DbConnections objdbConnections = new DbConnections();
         private ContextMenuStrip actionsMenu;
-        private int selectedRowIndex;
+        private int selectedRoomId = -1; // Store selected room ID
 
         public RoomsControl()
         {
             InitializeComponent();
             actionsMenu = new ContextMenuStrip();
-            actionsMenu.Items.Add("Edit", null, EditMenuItem_Click);
-            actionsMenu.Items.Add("Delete", null, DeleteMenuItem_Click);
             LoadRoomsData();
+            actionsMenu.Items.Add("Edit", null, editToolStripMenuItem_Click);
 
-            // Attach CellContentClick event
-            this.dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // Attach MouseDown event to detect right-clicks
+            this.dataGridView1.MouseDown += dataGridView1_MouseDown;
         }
 
         public string PageTitle
@@ -40,17 +39,25 @@ namespace HotelManagement
                 objdbConnections.readDatathroughAdapter(query, dtRooms);
                 dataGridView1.DataSource = dtRooms;
 
-                if (dataGridView1.Columns.Contains("Actions"))
+                // Hide the "room_id" column if it exists
+                if (dataGridView1.Columns.Contains("room_id"))
                 {
-                    dataGridView1.Columns.Remove("Actions");
+                    dataGridView1.Columns["room_id"].Visible = false;
                 }
 
-                DataGridViewButtonColumn actionsButtonColumn = new DataGridViewButtonColumn();
-                actionsButtonColumn.Name = "Actions";
-                actionsButtonColumn.HeaderText = "Actions";
-                actionsButtonColumn.Text = "Actions";
-                actionsButtonColumn.UseColumnTextForButtonValue = true;
-                dataGridView1.Columns.Add(actionsButtonColumn);
+                // Set custom headers for your specific columns
+                if (dataGridView1.Columns.Contains("room_number"))
+                    dataGridView1.Columns["room_number"].HeaderText = "Room Number";
+
+                if (dataGridView1.Columns.Contains("room_type"))
+                    dataGridView1.Columns["room_type"].HeaderText = "Room Type";
+
+                if (dataGridView1.Columns.Contains("price"))
+                    dataGridView1.Columns["price"].HeaderText = "Price Per Night";
+
+                if (dataGridView1.Columns.Contains("status"))
+                    dataGridView1.Columns["status"].HeaderText = "Status";
+
             }
             catch (Exception ex)
             {
@@ -58,74 +65,64 @@ namespace HotelManagement
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
-            // Check if the clicked cell is in the "Actions" column and not in a header.
-            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "Actions")
+            if (e.Button == MouseButtons.Right)
             {
-                selectedRowIndex = e.RowIndex;
-
-                // Get the display rectangle of the cell to position the context menu.
-                var rect = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                var point = new Point(rect.X + rect.Width / 2, rect.Y + rect.Height);
-                actionsMenu.Show(dataGridView1, point);
-            }
-        }
-
-        private void EditMenuItem_Click(object sender, EventArgs e)
-        {
-            if (selectedRowIndex >= 0 && selectedRowIndex < dataGridView1.Rows.Count)
-            {
-                DataGridViewRow row = dataGridView1.Rows[selectedRowIndex];
-                int roomId = Convert.ToInt32(row.Cells["room_id"].Value);
-
-                // Open the edit form and pass the room ID.
-                using (var editForm = new EditRoomForm(roomId))
+                var hit = dataGridView1.HitTest(e.X, e.Y);
+                if (hit.RowIndex >= 0)
                 {
-                    editForm.ShowDialog();
-                }
-                // Reload data after the edit form is closed.
-                LoadRoomsData();
-            }
-        }
+                    // Select the row under the mouse
+                    dataGridView1.ClearSelection();
+                    dataGridView1.Rows[hit.RowIndex].Selected = true;
 
-        private void DeleteMenuItem_Click(object sender, EventArgs e)
-        {
-            if (selectedRowIndex >= 0 && selectedRowIndex < dataGridView1.Rows.Count)
-            {
-                DataGridViewRow row = dataGridView1.Rows[selectedRowIndex];
-                int roomId = Convert.ToInt32(row.Cells["room_id"].Value);
+                    // Retrieve the room_id
+                    var row = dataGridView1.Rows[hit.RowIndex];
+                    if (row.Cells["room_id"].Value != null)
+                    {
+                        selectedRoomId = Convert.ToInt32(row.Cells["room_id"].Value);
+                    }
+                    else
+                    {
+                        selectedRoomId = -1;
+                    }
 
-                // Show a confirmation dialog before deleting.
-                var confirmResult = MessageBox.Show("Are you sure to delete this room?", "Confirm Delete", MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    string deleteQuery = $"DELETE FROM tbl_Room WHERE room_id = {roomId}";
-                    try
-                    {
-                        // Execute the delete query using the DbConnections class.
-                        objdbConnections.executeQuery(deleteQuery);
-                        // Reload data after successful deletion.
-                        LoadRoomsData();
-                    }
-                    catch (Exception ex)
-                    {
-                        // The error in the image is likely caught here.
-                        MessageBox.Show("Error deleting record: " + ex.Message);
-                    }
+                    // Show context menu at mouse position
+                    actionsMenu.Show(dataGridView1, e.Location);
                 }
             }
         }
 
         private void addroombtn_Click(object sender, EventArgs e)
         {
-            // Open the add room form.
             using (var addForm = new AddRoomForm())
             {
                 addForm.ShowDialog();
             }
-            // Reload data after the add form is closed.
             LoadRoomsData();
+        }
+
+        private void contextMenuRooms_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Optional: enable/disable menu items based on context
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectedRoomId != -1)
+            {
+                using (var editForm = new EditRoomForm(selectedRoomId))
+                {
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadRoomsData();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please right-click on a valid row to edit.");
+            }
         }
     }
 }

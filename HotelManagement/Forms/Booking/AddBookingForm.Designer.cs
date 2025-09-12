@@ -121,7 +121,6 @@
             txtage.Name = "txtage";
             txtage.Size = new Size(51, 23);
             txtage.TabIndex = 10;
-           // txtage.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // label15
             // 
@@ -142,7 +141,6 @@
             female.TabStop = true;
             female.Text = "Female";
             female.UseVisualStyleBackColor = true;
-            //female.CheckedChanged += female_CheckedChanged;
             // 
             // male
             // 
@@ -193,7 +191,6 @@
             label4.Size = new Size(39, 15);
             label4.TabIndex = 2;
             label4.Text = "Email:";
-          //  label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -275,9 +272,9 @@
             label11.AutoSize = true;
             label11.Location = new Point(18, 33);
             label11.Name = "label11";
-            label11.Size = new Size(52, 15);
+            label11.Size = new Size(41, 15);
             label11.TabIndex = 7;
-            label11.Text = "Method:";
+            label11.Text = "Mode:";
             // 
             // groupBox3
             // 

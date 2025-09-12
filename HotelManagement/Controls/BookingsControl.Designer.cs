@@ -42,6 +42,7 @@
             DGVBookings = new DataGridView();
             contextMenuBookings = new ContextMenuStrip(components);
             toolStripMenuEdit = new ToolStripMenuItem();
+            detailsToolStripMenuItem = new ToolStripMenuItem();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGVBookings).BeginInit();
             contextMenuBookings.SuspendLayout();
@@ -169,18 +170,24 @@
             // 
             // contextMenuBookings
             // 
-            contextMenuBookings.Items.AddRange(new ToolStripItem[] { toolStripMenuEdit });
+            contextMenuBookings.Items.AddRange(new ToolStripItem[] { toolStripMenuEdit, detailsToolStripMenuItem });
             contextMenuBookings.Name = "contextMenuStrip1";
-            contextMenuBookings.Size = new Size(95, 26);
+            contextMenuBookings.Size = new Size(110, 48);
             // 
             // toolStripMenuEdit
             // 
             toolStripMenuEdit.BackColor = SystemColors.Control;
             toolStripMenuEdit.Image = Properties.Resources.icons8_edit_50;
             toolStripMenuEdit.Name = "toolStripMenuEdit";
-            toolStripMenuEdit.Size = new Size(94, 22);
+            toolStripMenuEdit.Size = new Size(109, 22);
             toolStripMenuEdit.Text = "Edit";
             toolStripMenuEdit.Click += toolStripMenuEdit_Click;
+            // 
+            // detailsToolStripMenuItem
+            // 
+            detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
+            detailsToolStripMenuItem.Size = new Size(109, 22);
+            detailsToolStripMenuItem.Text = "Details";
             // 
             // BookingsControl
             // 
@@ -212,5 +219,6 @@
         private DataGridView DGVBookings;
         private ContextMenuStrip contextMenuBookings;
         private ToolStripMenuItem toolStripMenuEdit;
+        private ToolStripMenuItem detailsToolStripMenuItem;
     }
 }

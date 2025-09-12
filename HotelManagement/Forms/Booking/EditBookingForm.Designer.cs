@@ -31,6 +31,11 @@
             panel1 = new Panel();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            txtage = new NumericUpDown();
+            label15 = new Label();
+            female = new RadioButton();
+            male = new RadioButton();
+            label14 = new Label();
             txtEmail = new TextBox();
             txtPhoneNo = new TextBox();
             txtName = new TextBox();
@@ -62,6 +67,7 @@
             btnsubmit = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtage).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nupNoOfGuests).BeginInit();
@@ -92,18 +98,70 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtage);
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(female);
+            groupBox1.Controls.Add(male);
+            groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(txtPhoneNo);
             groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(31, 93);
+            groupBox1.Location = new Point(36, 58);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(330, 161);
+            groupBox1.Size = new Size(330, 236);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Guest Information";
+            // 
+            // txtage
+            // 
+            txtage.Location = new Point(122, 147);
+            txtage.Name = "txtage";
+            txtage.Size = new Size(51, 23);
+            txtage.TabIndex = 15;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(18, 155);
+            label15.Name = "label15";
+            label15.Size = new Size(31, 15);
+            label15.TabIndex = 14;
+            label15.Text = "Age:";
+            // 
+            // female
+            // 
+            female.AutoSize = true;
+            female.Location = new Point(206, 187);
+            female.Name = "female";
+            female.Size = new Size(63, 19);
+            female.TabIndex = 13;
+            female.TabStop = true;
+            female.Text = "Female";
+            female.UseVisualStyleBackColor = true;
+            // 
+            // male
+            // 
+            male.AutoSize = true;
+            male.Location = new Point(121, 187);
+            male.Name = "male";
+            male.Size = new Size(51, 19);
+            male.TabIndex = 12;
+            male.TabStop = true;
+            male.Text = "Male";
+            male.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(18, 191);
+            label14.Name = "label14";
+            label14.Size = new Size(48, 15);
+            label14.TabIndex = 11;
+            label14.Text = "Gender:";
             // 
             // txtEmail
             // 
@@ -161,7 +219,7 @@
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(label11);
-            groupBox2.Location = new Point(31, 275);
+            groupBox2.Location = new Point(36, 307);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(330, 167);
             groupBox2.TabIndex = 2;
@@ -186,6 +244,7 @@
             // cbMethod
             // 
             cbMethod.FormattingEnabled = true;
+            cbMethod.Items.AddRange(new object[] { "Cash", "Debit/Credit Card", "Gcash" });
             cbMethod.Location = new Point(122, 30);
             cbMethod.Name = "cbMethod";
             cbMethod.Size = new Size(202, 23);
@@ -214,9 +273,9 @@
             label11.AutoSize = true;
             label11.Location = new Point(18, 33);
             label11.Name = "label11";
-            label11.Size = new Size(52, 15);
+            label11.Size = new Size(41, 15);
             label11.TabIndex = 7;
-            label11.Text = "Method:";
+            label11.Text = "Mode:";
             // 
             // groupBox3
             // 
@@ -279,6 +338,7 @@
             // cbStayType
             // 
             cbStayType.FormattingEnabled = true;
+            cbStayType.Items.AddRange(new object[] { "Check-in", "Reservation" });
             cbStayType.Location = new Point(138, 30);
             cbStayType.Name = "cbStayType";
             cbStayType.Size = new Size(121, 23);
@@ -359,7 +419,7 @@
             btncancel.TabIndex = 5;
             btncancel.Text = "Cancel";
             btncancel.UseVisualStyleBackColor = false;
-            btncancel.Click += btncancel_Click;
+            btncancel.Click += btncancel_Click_1;
             // 
             // btnsubmit
             // 
@@ -372,6 +432,7 @@
             btnsubmit.TabIndex = 4;
             btnsubmit.Text = "Submit";
             btnsubmit.UseVisualStyleBackColor = false;
+            btnsubmit.Click += btnsubmit_Click;
             // 
             // EditBookingForm
             // 
@@ -391,6 +452,7 @@
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtage).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -434,5 +496,10 @@
         private Panel panel2;
         private Button btncancel;
         private Button btnsubmit;
+        private NumericUpDown txtage;
+        private Label label15;
+        private RadioButton female;
+        private RadioButton male;
+        private Label label14;
     }
 }

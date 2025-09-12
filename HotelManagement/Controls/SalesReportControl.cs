@@ -1,10 +1,14 @@
-﻿using LiveChartsCore;
+﻿using DatabaseProject;
+using LiveChartsCore;
+using LiveChartsCore.Measure;
 using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore.SkiaSharpView.WinForms;
 using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.WinForms;
+using Microsoft.Data.SqlClient;
 using SkiaSharp;
 using System;
-using System.Windows.Forms;
+using System.Data;
+using System.Windows.Forms; // For MessageBox
 
 namespace HotelManagement.Controls
 {
@@ -15,72 +19,44 @@ namespace HotelManagement.Controls
             InitializeComponent();
             this.Load += SalesReportControl_Load;
         }
+        public string PageTitle
+        {
+            get { return "Sales Report"; }
+        }
 
-        public string PageTitle { get; } = "Sales Report";
 
         private void SalesReportControl_Load(object sender, EventArgs e)
         {
-           
-            double bookingsValue = 5000;
-            double servicesValue = 2000;
+            LoadBookingData();
 
-            pieChart1.Series = new ISeries[]
-            {
-                new PieSeries<double>
-                {
-                    Values = new double[] { bookingsValue },
-                    Name = "Bookings",
-                    DataLabelsSize = 14,
-                    DataLabelsPaint = new SolidColorPaint(SKColors.Black),
-                    DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Outer
-                },
-                new PieSeries<double>
-                {
-                    Values = new double[] { servicesValue },
-                    Name = "Services",
-                    DataLabelsSize = 14,
-                    DataLabelsPaint = new SolidColorPaint(SKColors.Black),
-                    DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Outer
-                }
-            };
-
-            pieChart1.LegendPosition = LiveChartsCore.Measure.LegendPosition.Right;
-
-            cartesianChart1.Series = new ISeries[]
-            {
-                new ColumnSeries<double>
-                {
-                    Values = new double[] { 4000, 5000, 6000, 3000, 7000, 8000 },
-                    Name = "Bookings",
-                    Fill = new SolidColorPaint(SKColors.CornflowerBlue)
-                },
-                new ColumnSeries<double>
-                {
-                    Values = new double[] { 2000, 2500, 3000, 1500, 3500, 4000 },
-                    Name = "Services",
-                    Fill = new SolidColorPaint(SKColors.Orange)
-                }
-            };
-
-           
-            cartesianChart1.XAxes = new Axis[]
-            {
-                new Axis
-                {
-                    Name = "Month",
-                    Labels = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun" }
-                }
-            };
-
-           
-            cartesianChart1.YAxes = new Axis[]
-            {
-                new Axis
-                {
-                    Name = "Amount",
-                    Labeler = value => "$" + value
-                }
-            };
         }
+
+        private void LoadBookingData()
+        {
+            string query = "SELECT booking_id, checkin_date, amount, method, gender, no_guest FROM tbl_Booking";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (var db = new DbConnections())
+                {
+                    dt = new DataTable();
+                    db.readDatathroughAdapter(query, dt);
+                }
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching booking data: {ex.Message}");
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }

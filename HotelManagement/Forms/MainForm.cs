@@ -101,7 +101,7 @@ namespace HotelManagement
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Are you sure you want to logout?");
             LoginForm newForm = new LoginForm();
             newForm.Show();
             this.Hide();

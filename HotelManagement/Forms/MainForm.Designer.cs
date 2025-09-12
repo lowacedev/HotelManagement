@@ -268,9 +268,9 @@
             // 
             // dashboardControl1
             // 
-            dashboardControl1.Location = new Point(0, 0);
+            dashboardControl1.Location = new Point(-1, 65);
             dashboardControl1.Name = "dashboardControl1";
-            dashboardControl1.Size = new Size(150, 150);
+            dashboardControl1.Size = new Size(980, 683);
             dashboardControl1.TabIndex = 0;
             // 
             // panelHeader
@@ -319,6 +319,7 @@
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             logoutToolStripMenuItem.Size = new Size(112, 22);
             logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // lblPageTitle
             // 

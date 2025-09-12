@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel3 = new Panel();
@@ -36,8 +37,11 @@
             addroombtn = new Button();
             comboBox1 = new ComboBox();
             dataGridView1 = new DataGridView();
+            contextMenuRooms = new ContextMenuStrip(components);
+            editToolStripMenuItem = new ToolStripMenuItem();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            contextMenuRooms.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -107,6 +111,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.ContextMenuStrip = contextMenuRooms;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -125,6 +130,21 @@
             dataGridView1.Size = new Size(1200, 752);
             dataGridView1.TabIndex = 6;
             // 
+            // contextMenuRooms
+            // 
+            contextMenuRooms.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem });
+            contextMenuRooms.Name = "contextMenuRooms";
+            contextMenuRooms.Size = new Size(95, 26);
+            contextMenuRooms.Opening += contextMenuRooms_Opening;
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Image = Properties.Resources.icons8_edit_50;
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(94, 22);
+            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
+            // 
             // RoomsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -137,6 +157,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            contextMenuRooms.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -162,5 +183,7 @@
         private DataGridViewTextBoxColumn txtPrice;
         private DataGridViewTextBoxColumn txtStatus;
         private TextBox txtSearch;
+        private ContextMenuStrip contextMenuRooms;
+        private ToolStripMenuItem editToolStripMenuItem;
     }
 }
